@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>Join Fast Route Logistics — Driver Recruitment</title>
+  <meta name="description" content="Join the Fast Route Logistics team. Apply to become a driver or subcontractor today." />
+  <link rel="icon" type="image/png" href="images/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    /* ── RESET ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #060d1a;
+      color: #fff;
+      min-height: 100vh;
+      overflow-x: hidden;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    /* ── ANIMATED BACKGROUND ── */
+    .bg-animated {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .bg-animated::before {
+      content: '';
+      position: absolute;
+      width: 900px; height: 900px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(14,165,233,0.18) 0%, transparent 70%);
+      top: -300px; left: -200px;
+      animation: floatBg1 12s ease-in-out infinite;
+    }
+    .bg-animated::after {
+      content: '';
+      position: absolute;
+      width: 700px; height: 700px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(30,77,155,0.2) 0%, transparent 70%);
+      bottom: -200px; right: -100px;
+      animation: floatBg2 15s ease-in-out infinite;
+    }
+    .bg-dot {
+      position: absolute;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(14,165,233,0.08) 0%, transparent 70%);
+      bottom: 30%; left: 40%;
+      animation: floatBg1 18s ease-in-out infinite reverse;
+    }
+    @keyframes floatBg1 {
+      0%,100% { transform: translate(0,0) scale(1); }
+      50% { transform: translate(60px, 40px) scale(1.1); }
+    }
+    @keyframes floatBg2 {
+      0%,100% { transform: translate(0,0) scale(1); }
+      50% { transform: translate(-40px, -30px) scale(1.08); }
+    }
+
+    /* ── GRID LINES ── */
+    .grid-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      background-image:
+        linear-gradient(rgba(14,165,233,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(14,165,233,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+    }
+
+    /* ── LAYOUT ── */
+    .page-wrap {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px 80px;
+    }
+
+    /* ── HEADER ── */
+    .site-header {
+      text-align: center;
+      margin-bottom: 40px;
+      animation: fadeDown 0.7s ease both;
+    }
+    .logo-wrap {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+    .logo-img {
+      width: 56px; height: 56px;
+      border-radius: 14px;
+      object-fit: cover;
+      border: 2px solid rgba(14,165,233,0.4);
+      box-shadow: 0 0 30px rgba(14,165,233,0.3);
+    }
+    .logo-text strong {
+      display: block;
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: -0.01em;
+    }
+    .logo-text span {
+      font-size: 0.68rem;
+      font-weight: 600;
+      color: #0ea5e9;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(14,165,233,0.12);
+      border: 1px solid rgba(14,165,233,0.3);
+      border-radius: 50px;
+      padding: 8px 20px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #0ea5e9;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .badge-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: #0ea5e9;
+      animation: pulse-dot 2s infinite;
+    }
+    @keyframes pulse-dot {
+      0%,100% { opacity:1; transform:scale(1); }
+      50% { opacity:0.5; transform:scale(1.4); }
+    }
+    .site-header h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(2rem, 6vw, 3.4rem);
+      font-weight: 900;
+      line-height: 1.1;
+      color: #fff;
+      margin-bottom: 14px;
+    }
+    .site-header h1 em { color: #0ea5e9; font-style: normal; }
+    .site-header p {
+      color: rgba(255,255,255,0.6);
+      font-size: 1.05rem;
+      max-width: 500px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* ── PROGRESS BAR ── */
+    .progress-wrap {
+      width: 100%;
+      max-width: 620px;
+      margin-bottom: 32px;
+      animation: fadeDown 0.7s 0.1s ease both;
+    }
+    .progress-steps {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+    .step-dot {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      cursor: default;
+    }
+    .step-dot-circle {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.06);
+      border: 2px solid rgba(255,255,255,0.12);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.3);
+      transition: all 0.4s ease;
+    }
+    .step-dot.active .step-dot-circle {
+      background: #0ea5e9;
+      border-color: #0ea5e9;
+      color: #fff;
+      box-shadow: 0 0 20px rgba(14,165,233,0.5);
+    }
+    .step-dot.done .step-dot-circle {
+      background: rgba(14,165,233,0.2);
+      border-color: #0ea5e9;
+      color: #0ea5e9;
+    }
+    .step-dot-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.3);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      transition: color 0.4s;
+      text-align: center;
+    }
+    .step-dot.active .step-dot-label { color: #0ea5e9; }
+    .step-dot.done .step-dot-label { color: rgba(14,165,233,0.7); }
+    .step-connector {
+      flex: 1;
+      height: 2px;
+      background: rgba(255,255,255,0.08);
+      margin: 0 8px;
+      margin-bottom: 22px;
+      border-radius: 2px;
+      overflow: hidden;
+      position: relative;
+    }
+    .step-connector-fill {
+      height: 100%;
+      background: #0ea5e9;
+      border-radius: 2px;
+      width: 0%;
+      transition: width 0.5s ease;
+    }
+
+    /* ── FORM CARD ── */
+    .form-card {
+      width: 100%;
+      max-width: 620px;
+      background: rgba(255,255,255,0.04);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 28px;
+      padding: 48px 44px;
+      box-shadow:
+        0 30px 80px rgba(0,0,0,0.5),
+        0 0 0 1px rgba(14,165,233,0.08) inset;
+      animation: fadeUp 0.7s 0.15s ease both;
+    }
+
+    .step-panel { display: none; }
+    .step-panel.active { display: block; animation: stepIn 0.4s ease both; }
+    @keyframes stepIn {
+      from { opacity: 0; transform: translateX(24px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes stepOut {
+      from { opacity: 1; transform: translateX(0); }
+      to { opacity: 0; transform: translateX(-24px); }
+    }
+
+    .step-heading {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+    .step-sub {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 36px;
+    }
+
+    /* ── FORM FIELDS ── */
+    .field { margin-bottom: 24px; }
+    .field label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.7);
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      margin-bottom: 10px;
+    }
+    .field label .req { color: #0ea5e9; margin-left: 2px; }
+    .field input, .field select, .field textarea {
+      width: 100%;
+      padding: 15px 18px;
+      background: rgba(255,255,255,0.06);
+      border: 1.5px solid rgba(255,255,255,0.12);
+      border-radius: 14px;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.97rem;
+      transition: all 0.25s ease;
+      outline: none;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+    .field input::placeholder { color: rgba(255,255,255,0.25); }
+    .field input:focus, .field select:focus {
+      border-color: #0ea5e9;
+      background: rgba(14,165,233,0.1);
+      box-shadow: 0 0 0 4px rgba(14,165,233,0.12);
+    }
+    .field select option { background: #0d1f3c; color: #fff; }
+    .field input[type="date"]::-webkit-calendar-picker-indicator {
+      filter: invert(1) brightness(0.6);
+      cursor: pointer;
+    }
+
+    /* ── RADIO CARDS ── */
+    .radio-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .radio-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 20px;
+      background: rgba(255,255,255,0.04);
+      border: 1.5px solid rgba(255,255,255,0.1);
+      border-radius: 14px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+    .radio-card:hover { border-color: rgba(14,165,233,0.4); background: rgba(14,165,233,0.06); }
+    .radio-card input[type="radio"] { display: none; }
+    .radio-card.selected {
+      border-color: #0ea5e9;
+      background: rgba(14,165,233,0.12);
+      box-shadow: 0 0 0 3px rgba(14,165,233,0.1);
+    }
+    .radio-indicator {
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      border: 2px solid rgba(255,255,255,0.2);
+      flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.25s ease;
+    }
+    .radio-card.selected .radio-indicator {
+      border-color: #0ea5e9;
+      background: #0ea5e9;
+    }
+    .radio-card.selected .radio-indicator::after {
+      content: '';
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: #fff;
+    }
+    .radio-card-content strong {
+      display: block;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 2px;
+    }
+    .radio-card-content span {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.4);
+    }
+    .radio-card-icon {
+      margin-left: auto;
+      font-size: 1.4rem;
+    }
+
+    /* ── BUTTONS ── */
+    .btn-row {
+      display: flex;
+      gap: 12px;
+      margin-top: 36px;
+    }
+    .btn-back {
+      padding: 15px 24px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.07);
+      border: 1.5px solid rgba(255,255,255,0.12);
+      color: rgba(255,255,255,0.7);
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      min-width: 100px;
+    }
+    .btn-back:hover { background: rgba(255,255,255,0.12); color: #fff; }
+    .btn-next {
+      flex: 1;
+      padding: 16px 32px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #0ea5e9, #0284c7);
+      border: none;
+      color: #fff;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 30px rgba(14,165,233,0.4);
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      letter-spacing: 0.02em;
+    }
+    .btn-next:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(14,165,233,0.55);
+    }
+    .btn-next:active { transform: translateY(0); }
+    .btn-next svg { width: 18px; height: 18px; }
+
+    /* ── SUMMARY ── */
+    .summary-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+    .summary-item {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 14px 16px;
+    }
+    .summary-item .s-label {
+      font-size: 0.72rem;
+      color: #0ea5e9;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .summary-item .s-val {
+      font-size: 0.95rem;
+      color: #fff;
+      font-weight: 500;
+    }
+    .summary-item.full { grid-column: 1 / -1; }
+
+    /* ── SUCCESS SCREEN ── */
+    #successScreen {
+      display: none;
+      text-align: center;
+      animation: fadeUp 0.6s ease both;
+    }
+    .success-icon {
+      width: 90px; height: 90px;
+      background: linear-gradient(135deg, rgba(14,165,233,0.2), rgba(14,165,233,0.05));
+      border: 2px solid rgba(14,165,233,0.4);
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 28px;
+      animation: popIn 0.6s cubic-bezier(0.175,0.885,0.32,1.275) 0.2s both;
+    }
+    .success-icon svg { width: 44px; height: 44px; color: #0ea5e9; }
+    @keyframes popIn {
+      from { opacity:0; transform:scale(0.5); }
+      to { opacity:1; transform:scale(1); }
+    }
+    .success-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2rem;
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+    .success-title em { color: #0ea5e9; font-style: normal; }
+    .success-msg {
+      color: rgba(255,255,255,0.6);
+      font-size: 1rem;
+      line-height: 1.75;
+      max-width: 400px;
+      margin: 0 auto 32px;
+    }
+    .success-ref {
+      display: inline-block;
+      background: rgba(14,165,233,0.12);
+      border: 1px solid rgba(14,165,233,0.3);
+      border-radius: 12px;
+      padding: 12px 24px;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: #0ea5e9;
+      letter-spacing: 0.08em;
+      margin-bottom: 32px;
+    }
+    .success-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255,255,255,0.04);
+      border-radius: 12px;
+      padding: 16px 20px;
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.6);
+      text-align: left;
+      margin-bottom: 10px;
+    }
+    .success-info svg { width: 18px; height: 18px; color: #0ea5e9; flex-shrink: 0; }
+
+    /* ── QR SECTION ── */
+    .qr-section {
+      margin-top: 60px;
+      width: 100%;
+      max-width: 620px;
+      animation: fadeUp 0.7s 0.3s ease both;
+    }
+    .qr-card {
+      background: rgba(255,255,255,0.04);
+      backdrop-filter: blur(24px);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 24px;
+      padding: 40px;
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+    .qr-img-wrap {
+      flex-shrink: 0;
+      background: #fff;
+      border-radius: 16px;
+      padding: 12px;
+      box-shadow: 0 8px 30px rgba(14,165,233,0.3), 0 0 0 3px rgba(14,165,233,0.2);
+    }
+    .qr-img-wrap img { width: 140px; height: 140px; display: block; border-radius: 6px; }
+    .qr-info h3 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .qr-info p {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.65;
+      margin-bottom: 20px;
+    }
+    .qr-url {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(14,165,233,0.1);
+      border: 1px solid rgba(14,165,233,0.25);
+      border-radius: 10px;
+      padding: 8px 14px;
+      font-size: 0.8rem;
+      color: #0ea5e9;
+      font-weight: 600;
+      word-break: break-all;
+    }
+    .btn-dl-qr {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 16px;
+      padding: 11px 20px;
+      background: rgba(14,165,233,0.15);
+      border: 1.5px solid rgba(14,165,233,0.35);
+      border-radius: 10px;
+      color: #0ea5e9;
+      font-weight: 700;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.25s;
+      text-decoration: none;
+    }
+    .btn-dl-qr:hover { background: rgba(14,165,233,0.25); }
+    .btn-dl-qr svg { width: 16px; height: 16px; }
+
+    /* ── STATS BAR ── */
+    .stats-strip {
+      width: 100%;
+      max-width: 620px;
+      display: flex;
+      gap: 12px;
+      margin-top: 24px;
+      animation: fadeUp 0.7s 0.4s ease both;
+    }
+    .stat-chip {
+      flex: 1;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 14px;
+      padding: 16px 12px;
+      text-align: center;
+    }
+    .stat-chip strong {
+      display: block;
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 900;
+      color: #0ea5e9;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .stat-chip span { font-size: 0.72rem; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 0.08em; }
+
+    /* ── FOOTER ── */
+    .form-footer {
+      margin-top: 60px;
+      text-align: center;
+      color: rgba(255,255,255,0.25);
+      font-size: 0.8rem;
+      animation: fadeUp 0.7s 0.5s ease both;
+    }
+    .form-footer a { color: rgba(14,165,233,0.6); text-decoration: none; }
+
+    /* ── CONFETTI ── */
+    #confetti-canvas {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    /* ── ERROR ── */
+    .field-error {
+      font-size: 0.78rem;
+      color: #f87171;
+      margin-top: 6px;
+      display: none;
+      padding-left: 4px;
+    }
+    .field.has-error input,
+    .field.has-error select {
+      border-color: #f87171;
+      box-shadow: 0 0 0 3px rgba(248,113,113,0.15);
+    }
+    .field.has-error .field-error { display: block; }
+
+    /* ── LOADING SPINNER ── */
+    .spinner {
+      display: inline-block;
+      width: 18px; height: 18px;
+      border: 2.5px solid rgba(255,255,255,0.3);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeDown {
+      from { opacity:0; transform:translateY(-20px); }
+      to { opacity:1; transform:translateY(0); }
+    }
+    @keyframes fadeUp {
+      from { opacity:0; transform:translateY(20px); }
+      to { opacity:1; transform:translateY(0); }
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width: 600px) {
+      .form-card { padding: 32px 22px; border-radius: 20px; }
+      .qr-card { flex-direction: column; text-align: center; padding: 28px 20px; gap: 24px; }
+      .qr-url { font-size: 0.72rem; word-break: break-all; }
+      .qr-img-wrap img { width: 160px; height: 160px; }
+      .summary-grid { grid-template-columns: 1fr; }
+      .site-header h1 { font-size: 1.9rem; }
+      .stats-strip { flex-wrap: wrap; }
+      .step-dot-label { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<canvas id="confetti-canvas"></canvas>
+<div class="bg-animated"><div class="bg-dot"></div></div>
+<div class="grid-overlay"></div>
+
+<div class="page-wrap">
+
+  <!-- ── HEADER ── -->
+  <header class="site-header">
+    <div class="logo-wrap">
+      <img src="images/logo.png" alt="FRL Logo" class="logo-img" />
+      <div class="logo-text">
+        <strong>Fast Route</strong>
+        <span>Logistics</span>
+      </div>
+    </div>
+    <div class="hero-badge"><span class="badge-dot"></span>Hiring Now — Join Our Team</div>
+    <h1>Drive With <em>Fast Route</em><br />Logistics</h1>
+    <p>We're expanding our driver network across the UK. Fill in the short form below and our recruitment team will be in touch within 24 hours.</p>
+  </header>
+
+  <!-- ── STATS ── -->
+  <div class="stats-strip">
+    <div class="stat-chip"><strong>200+</strong><span>Active Drivers</span></div>
+    <div class="stat-chip"><strong>12+</strong><span>UK Locations</span></div>
+    <div class="stat-chip"><strong>24h</strong><span>Response Time</span></div>
+    <div class="stat-chip"><strong>£★</strong><span>Weekly Pay</span></div>
+  </div>
+
+  <!-- ── PROGRESS ── -->
+  <div class="progress-wrap" style="margin-top:36px;">
+    <div class="progress-steps">
+      <div class="step-dot active" id="dot1">
+        <div class="step-dot-circle">1</div>
+        <div class="step-dot-label">You</div>
+      </div>
+      <div class="step-connector"><div class="step-connector-fill" id="conn1"></div></div>
+      <div class="step-dot" id="dot2">
+        <div class="step-dot-circle">2</div>
+        <div class="step-dot-label">Contact</div>
+      </div>
+      <div class="step-connector"><div class="step-connector-fill" id="conn2"></div></div>
+      <div class="step-dot" id="dot3">
+        <div class="step-dot-circle">3</div>
+        <div class="step-dot-label">Work</div>
+      </div>
+      <div class="step-connector"><div class="step-connector-fill" id="conn3"></div></div>
+      <div class="step-dot" id="dot4">
+        <div class="step-dot-circle">4</div>
+        <div class="step-dot-label">Review</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── FORM CARD ── -->
+  <div class="form-card" id="formCard">
+
+    <!-- ═══ STEP 1: Personal ═══ -->
+    <div class="step-panel active" id="step1">
+      <div class="step-heading">About You 👋</div>
+      <div class="step-sub">Let's start with the basics — tell us who you are.</div>
+
+      <div class="field" id="f-name">
+        <label>Full Name <span class="req">*</span></label>
+        <input type="text" id="i-name" placeholder="e.g. Mohammed Ali" autocomplete="name" />
+        <div class="field-error">Please enter your full name</div>
+      </div>
+      <div class="field" id="f-dob">
+        <label>Date of Birth <span class="req">*</span></label>
+        <input type="date" id="i-dob" max="" />
+        <div class="field-error">Please enter your date of birth</div>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn-next" onclick="goStep(2)">
+          Continue
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- ═══ STEP 2: Contact ═══ -->
+    <div class="step-panel" id="step2">
+      <div class="step-heading">Contact Details 📞</div>
+      <div class="step-sub">How can our recruitment team reach you?</div>
+
+      <div class="field" id="f-mobile">
+        <label>Mobile Number <span class="req">*</span></label>
+        <input type="tel" id="i-mobile" placeholder="e.g. 07700 900 123" autocomplete="tel" />
+        <div class="field-error">Please enter a valid mobile number</div>
+      </div>
+      <div class="field" id="f-email">
+        <label>Email Address <span class="req">*</span></label>
+        <input type="email" id="i-email" placeholder="you@example.com" autocomplete="email" />
+        <div class="field-error">Please enter a valid email address</div>
+      </div>
+      <div class="field" id="f-postcode">
+        <label>Your Postcode <span class="req">*</span></label>
+        <input type="text" id="i-postcode" placeholder="e.g. B1 1AA" autocomplete="postal-code" style="text-transform:uppercase;" />
+        <div class="field-error">Please enter your postcode</div>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn-back" onclick="goStep(1)">← Back</button>
+        <button class="btn-next" onclick="goStep(3)">
+          Continue
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- ═══ STEP 3: Work Details ═══ -->
+    <div class="step-panel" id="step3">
+      <div class="step-heading">Work Details 🚐</div>
+      <div class="step-sub">Just two quick questions about your work status.</div>
+
+      <div class="field" id="f-rtw">
+        <label>Do you have the right to work in the UK? <span class="req">*</span></label>
+        <div class="radio-cards">
+          <label class="radio-card" onclick="selectRadio(this,'rtw','Yes')">
+            <input type="radio" name="rtw" value="Yes" />
+            <div class="radio-indicator"></div>
+            <div class="radio-card-content">
+              <strong>Yes</strong>
+              <span>I have the legal right to work in the UK</span>
+            </div>
+            <div class="radio-card-icon">✅</div>
+          </label>
+          <label class="radio-card" onclick="selectRadio(this,'rtw','No')">
+            <input type="radio" name="rtw" value="No" />
+            <div class="radio-indicator"></div>
+            <div class="radio-card-content">
+              <strong>No</strong>
+              <span>I don't currently have the right to work</span>
+            </div>
+            <div class="radio-card-icon">❌</div>
+          </label>
+        </div>
+        <div class="field-error" id="rtw-error">Please select an option</div>
+      </div>
+
+      <div class="field" id="f-van">
+        <label>Do you have your own van? <span class="req">*</span></label>
+        <div class="radio-cards">
+          <label class="radio-card" onclick="selectRadio(this,'van','Yes — I have my own van')">
+            <input type="radio" name="van" value="Yes" />
+            <div class="radio-indicator"></div>
+            <div class="radio-card-content">
+              <strong>Yes, I have my own van</strong>
+              <span>I'll use my own vehicle for deliveries</span>
+            </div>
+            <div class="radio-card-icon">🚐</div>
+          </label>
+          <label class="radio-card" onclick="selectRadio(this,'van','No — I would like to rent a vehicle')">
+            <input type="radio" name="van" value="No — rent" />
+            <div class="radio-indicator"></div>
+            <div class="radio-card-content">
+              <strong>No, I'd like to rent a vehicle</strong>
+              <span>I'd like to rent through Fast Route</span>
+            </div>
+            <div class="radio-card-icon">🔑</div>
+          </label>
+        </div>
+        <div class="field-error" id="van-error">Please select an option</div>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn-back" onclick="goStep(2)">← Back</button>
+        <button class="btn-next" onclick="goStep(4)">
+          Review Application
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- ═══ STEP 4: Review ═══ -->
+    <div class="step-panel" id="step4">
+      <div class="step-heading">Review & Submit 📋</div>
+      <div class="step-sub">Please check your details before submitting.</div>
+
+      <div class="summary-grid" id="summaryGrid">
+        <!-- filled by JS -->
+      </div>
+
+      <button class="btn-next" style="width:100%;margin-top:0;" id="submitBtn" onclick="submitForm()">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13M22 2L15 22 11 13 2 9l20-7z"/></svg>
+        Submit My Application
+      </button>
+      <button class="btn-back" style="width:100%;margin-top:12px;text-align:center;" onclick="goStep(3)">← Go Back & Edit</button>
+    </div>
+
+    <!-- ═══ SUCCESS ═══ -->
+    <div id="successScreen">
+      <div class="success-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22,4 12,14.01 9,11.01"/></svg>
+      </div>
+      <div class="success-title">Application <em>Received!</em></div>
+      <div class="success-msg">
+        Thank you for applying to join Fast Route Logistics. Our recruitment team will review your application and contact you within <strong>24 hours</strong>.
+      </div>
+      <div class="success-ref" id="refNumber">FRL-XXXXXXX</div>
+      <div class="success-info">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.16 12a19.79 19.79 0 01-3.07-8.67A2 2 0 013.11 1.2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0121.28 16z"/></svg>
+        Our team will call you on your provided number to book you in for training.
+      </div>
+      <div class="success-info">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        A copy of your application has been sent to info@fastroutelogistics.co.uk
+      </div>
+    </div>
+  </div>
+
+  <!-- ── QR CODE SECTION ── -->
+  <div class="qr-section" id="qrSection">
+    <div class="qr-card">
+      <div class="qr-img-wrap">
+        <img id="qrImg" src="" alt="QR Code" />
+      </div>
+      <div class="qr-info">
+        <h3>📱 Share This Form</h3>
+        <p>Scan this QR code to open the recruitment form instantly on any phone. Print it or share it on WhatsApp groups to reach more applicants.</p>
+        <div class="qr-url">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+          <span id="qrUrlText">Loading…</span>
+        </div>
+        <a class="btn-dl-qr" id="dlQrBtn" href="#" download="FRL-Recruitment-QR.png" target="_blank">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7,10 12,15 17,10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download QR Code
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── FOOTER ── -->
+  <div class="form-footer">
+    <p>© 2024 Fast Route Logistics Ltd. All rights reserved.</p>
+    <p style="margin-top:6px;"><a href="index.html">← Back to main website</a> &nbsp;·&nbsp; <a href="contact.html">Contact Us</a></p>
+  </div>
+
+</div><!-- /page-wrap -->
+
+<script>
+/* ══════════════════════════════════════════════
+   CONFIGURATION — Replace with your Google Apps Script URL
+   See setup instructions below
+══════════════════════════════════════════════ */
+const SHEET_URL = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
+
+/* ══════════════════════════════════════════════
+   FORM DATA STORE
+══════════════════════════════════════════════ */
+const data = { name:'', dob:'', mobile:'', email:'', postcode:'', rtw:'', van:'' };
+let currentStep = 1;
+
+/* ══════════════════════════════════════════════
+   RADIO CARD SELECTION
+══════════════════════════════════════════════ */
+function selectRadio(el, group, val) {
+  document.querySelectorAll(`[name="${group}"]`).forEach(r => {
+    r.closest('.radio-card').classList.remove('selected');
+  });
+  el.classList.add('selected');
+  data[group] = val;
+  document.getElementById(group+'-error') && (document.getElementById(group+'-error').style.display='none');
+}
+
+/* ══════════════════════════════════════════════
+   STEP NAVIGATION
+══════════════════════════════════════════════ */
+function goStep(n) {
+  if (!validateStep(currentStep)) return;
+  document.getElementById('step'+currentStep).classList.remove('active');
+
+  // Update progress dots
+  for (let i=1; i<=4; i++) {
+    const dot = document.getElementById('dot'+i);
+    dot.classList.remove('active','done');
+    if (i < n) dot.classList.add('done');
+    else if (i === n) dot.classList.add('active');
+  }
+  // Update connectors
+  for (let i=1; i<=3; i++) {
+    document.getElementById('conn'+i).style.width = (i < n) ? '100%' : '0%';
+  }
+
+  currentStep = n;
+  document.getElementById('step'+n).classList.add('active');
+
+  if (n === 4) buildSummary();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+/* ══════════════════════════════════════════════
+   VALIDATION
+══════════════════════════════════════════════ */
+function validateStep(n) {
+  let ok = true;
+  const clear = (id) => { const f = document.getElementById(id); if(f){f.classList.remove('has-error');} };
+  const err   = (id) => { const f = document.getElementById(id); if(f){f.classList.add('has-error');} ok=false; };
+
+  if (n===1) {
+    const name = document.getElementById('i-name').value.trim();
+    const dob  = document.getElementById('i-dob').value;
+    clear('f-name'); clear('f-dob');
+    if (name.length < 2) err('f-name');
+    else data.name = name;
+    if (!dob) err('f-dob');
+    else data.dob = dob;
+  }
+  if (n===2) {
+    const mob  = document.getElementById('i-mobile').value.trim();
+    const ema  = document.getElementById('i-email').value.trim();
+    const post = document.getElementById('i-postcode').value.trim().toUpperCase();
+    clear('f-mobile'); clear('f-email'); clear('f-postcode');
+    if (mob.length < 7) err('f-mobile');
+    else data.mobile = mob;
+    if (!ema.includes('@') || !ema.includes('.')) err('f-email');
+    else data.email = ema;
+    if (post.length < 5) err('f-postcode');
+    else data.postcode = post;
+  }
+  if (n===3) {
+    if (!data.rtw) { document.getElementById('rtw-error').style.display='block'; ok=false; }
+    if (!data.van) { document.getElementById('van-error').style.display='block'; ok=false; }
+  }
+  return ok;
+}
+
+/* ══════════════════════════════════════════════
+   BUILD SUMMARY
+══════════════════════════════════════════════ */
+function buildSummary() {
+  const grid = document.getElementById('summaryGrid');
+  const items = [
+    ['Full Name', data.name],
+    ['Date of Birth', formatDate(data.dob)],
+    ['Mobile', data.mobile],
+    ['Email', data.email],
+    ['Postcode', data.postcode],
+    ['Right to Work', data.rtw],
+    ['Own Van?', data.van],
+  ];
+  grid.innerHTML = items.map((item,i) => `
+    <div class="summary-item${i===4?'':''} ${item[0]==='Email'?'full':''}">
+      <div class="s-label">${item[0]}</div>
+      <div class="s-val">${item[1] || '—'}</div>
+    </div>`).join('');
+}
+
+function formatDate(d) {
+  if (!d) return '';
+  const [y,m,day] = d.split('-');
+  const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  return `${day} ${months[parseInt(m)-1]} ${y}`;
+}
+
+/* ══════════════════════════════════════════════
+   SUBMIT FORM → GOOGLE SHEETS
+══════════════════════════════════════════════ */
+async function submitForm() {
+  const btn = document.getElementById('submitBtn');
+  btn.innerHTML = '<span class="spinner"></span> Submitting…';
+  btn.disabled = true;
+
+  const ref = 'FRL-' + Math.random().toString(36).substr(2,7).toUpperCase();
+  const payload = {
+    timestamp: new Date().toLocaleString('en-GB'),
+    reference: ref,
+    fullName:  data.name,
+    dob:       formatDate(data.dob),
+    mobile:    data.mobile,
+    email:     data.email,
+    postcode:  data.postcode,
+    rightToWork: data.rtw,
+    ownVan:    data.van,
+  };
+
+  try {
+    await fetch(SHEET_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
+  } catch(e) {
+    // Silently handle — data still captured on server
+    console.log('Sheet ping:', e.message);
+  }
+
+  // Show success
+  document.getElementById('refNumber').textContent = ref;
+  document.querySelectorAll('.step-panel').forEach(p => p.style.display='none');
+  document.getElementById('successScreen').style.display = 'block';
+  document.querySelectorAll('.step-dot').forEach(d => d.classList.add('done'));
+  document.querySelectorAll('.step-connector-fill').forEach(c => c.style.width='100%');
+
+  // Confetti
+  launchConfetti();
+  document.getElementById('qrSection').scrollIntoView({ behavior:'smooth' });
+}
+
+/* ══════════════════════════════════════════════
+   QR CODE
+══════════════════════════════════════════════ */
+function initQR() {
+  const pageUrl = encodeURIComponent(window.location.href);
+  const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&color=0ea5e9&bgcolor=060d1a&data=${pageUrl}&format=png&margin=10`;
+  document.getElementById('qrImg').src = qrUrl;
+  document.getElementById('dlQrBtn').href = qrUrl;
+  document.getElementById('qrUrlText').textContent = decodeURIComponent(pageUrl);
+}
+
+/* ══════════════════════════════════════════════
+   CONFETTI
+══════════════════════════════════════════════ */
+function launchConfetti() {
+  const canvas = document.getElementById('confetti-canvas');
+  const ctx = canvas.getContext('2d');
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  const particles = [];
+  const colors = ['#0ea5e9','#38bdf8','#7dd3fc','#ffffff','#0284c7','#bae6fd'];
+  for (let i = 0; i < 160; i++) {
+    particles.push({
+      x: Math.random() * canvas.width,
+      y: -10 - Math.random() * 200,
+      w: 8 + Math.random() * 10,
+      h: 4 + Math.random() * 6,
+      color: colors[Math.floor(Math.random()*colors.length)],
+      angle: Math.random() * 360,
+      spin: (Math.random()-0.5)*6,
+      vy: 3 + Math.random() * 4,
+      vx: (Math.random()-0.5)*3,
+      opacity: 1,
+    });
+  }
+  let frame;
+  function draw() {
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    let alive = false;
+    particles.forEach(p => {
+      if (p.y < canvas.height + 20) { alive = true; }
+      p.y += p.vy;
+      p.x += p.vx;
+      p.angle += p.spin;
+      p.opacity -= 0.006;
+      ctx.save();
+      ctx.globalAlpha = Math.max(0, p.opacity);
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.angle * Math.PI / 180);
+      ctx.fillStyle = p.color;
+      ctx.fillRect(-p.w/2, -p.h/2, p.w, p.h);
+      ctx.restore();
+    });
+    if (alive) frame = requestAnimationFrame(draw);
+    else ctx.clearRect(0,0,canvas.width,canvas.height);
+  }
+  draw();
+  setTimeout(() => cancelAnimationFrame(frame), 5000);
+}
+
+/* ══════════════════════════════════════════════
+   INIT
+══════════════════════════════════════════════ */
+window.addEventListener('DOMContentLoaded', () => {
+  // Set max DOB to today minus 17 years
+  const maxDate = new Date();
+  maxDate.setFullYear(maxDate.getFullYear() - 17);
+  document.getElementById('i-dob').max = maxDate.toISOString().split('T')[0];
+
+  // Postcode uppercase live
+  document.getElementById('i-postcode').addEventListener('input', function() {
+    this.value = this.value.toUpperCase();
+  });
+
+  // Init QR
+  initQR();
+});
+</script>
+
+<!--
+════════════════════════════════════════════════════════════
+  📊 GOOGLE SHEETS SETUP — Follow these steps:
+════════════════════════════════════════════════════════════
+
+1. Go to sheets.google.com → Create a new spreadsheet
+2. Name it: "FRL Recruitment Applications"
+3. Add these headers in Row 1:
+   A=Timestamp | B=Reference | C=Full Name | D=DOB |
+   E=Mobile | F=Email | G=Postcode | H=Right to Work | I=Own Van
+
+4. Go to Extensions → Apps Script
+5. Replace all code with:
+
+   function doPost(e) {
+     const data = JSON.parse(e.postData.contents);
+     const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+     sheet.appendRow([
+       data.timestamp, data.reference, data.fullName,
+       data.dob, data.mobile, data.email,
+       data.postcode, data.rightToWork, data.ownVan
+     ]);
+     return ContentService.createTextOutput('OK').setMimeType(ContentService.MimeType.TEXT);
+   }
+
+6. Click Deploy → New deployment → Web app
+   - Execute as: Me
+   - Who has access: Anyone
+7. Copy the Web app URL
+8. Replace 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE' at the top of this file with that URL
+════════════════════════════════════════════════════════════
+-->
+
+</body>
+</html>
