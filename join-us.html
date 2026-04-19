@@ -767,6 +767,12 @@
         <div class="field-error" id="van-error">Please select an option</div>
       </div>
 
+      <div class="field" id="f-experience">
+        <label>What experience do you have? <span class="req">*</span></label>
+        <textarea id="i-experience" class="" rows="4" placeholder="e.g. 2 years driving for Amazon Logistics, experience with parcel scanning apps, clean DBS check..." style="width:100%;padding:15px 18px;background:rgba(255,255,255,0.06);border:1.5px solid rgba(255,255,255,0.12);border-radius:14px;color:#fff;font-family:'Inter',sans-serif;font-size:0.97rem;transition:all 0.25s;outline:none;resize:vertical;min-height:110px;"></textarea>
+        <div class="field-error" id="exp-error">Please tell us about your experience</div>
+      </div>
+
       <div class="btn-row">
         <button class="btn-back" onclick="goStep(2)">← Back</button>
         <button class="btn-next" onclick="goStep(4)">
@@ -833,7 +839,7 @@ const SHEET_URL = 'https://script.google.com/macros/s/AKfycbyCGlanLwk_E6oM41T-1f
 /* ══════════════════════════════════════════════
    FORM DATA STORE
 ══════════════════════════════════════════════ */
-const data = { name:'', dob:'', mobile:'', email:'', postcode:'', rtw:'', van:'' };
+const data = { name:'', dob:'', mobile:'', email:'', postcode:'', rtw:'', van:'', experience:'' };
 let currentStep = 1;
 
 /* ══════════════════════════════════════════════
@@ -906,6 +912,9 @@ function validateStep(n) {
   if (n===3) {
     if (!data.rtw) { document.getElementById('rtw-error').style.display='block'; ok=false; }
     if (!data.van) { document.getElementById('van-error').style.display='block'; ok=false; }
+    const exp = document.getElementById('i-experience').value.trim();
+    if (exp.length < 5) { document.getElementById('exp-error').style.display='block'; ok=false; }
+    else { data.experience = exp; document.getElementById('exp-error').style.display='none'; }
   }
   return ok;
 }
@@ -923,9 +932,10 @@ function buildSummary() {
     ['Postcode', data.postcode],
     ['Right to Work', data.rtw],
     ['Own Van?', data.van],
+    ['Experience', data.experience],
   ];
   grid.innerHTML = items.map((item,i) => `
-    <div class="summary-item${i===4?'':''} ${item[0]==='Email'?'full':''}">
+    <div class="summary-item ${item[0]==='Email'||item[0]==='Experience'?'full':''}">
       <div class="s-label">${item[0]}</div>
       <div class="s-val">${item[1] || '—'}</div>
     </div>`).join('');
@@ -957,6 +967,7 @@ async function submitForm() {
     postcode:  data.postcode,
     rightToWork: data.rtw,
     ownVan:    data.van,
+    experience: data.experience,
   };
 
   try {
