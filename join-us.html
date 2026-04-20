@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-  <!-- v3.0 Typeform-style | cache:bust-2026-04-21 -->
-  <title>Join Fast Route Logistics â€” Driver Recruitment</title>
+  <!-- v3.1 clean ASCII only | cache-bust-2026-04-21b -->
+  <title>Join Fast Route Logistics - Driver Recruitment</title>
   <meta name="description" content="Apply to become a Fast Route Logistics driver. Takes under 2 minutes.">
   <link rel="icon" type="image/png" href="images/logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,7 +13,6 @@
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     html{font-size:16px}
 
-    /* â”€â”€ BODY = BG PHOTO â”€â”€ */
     body {
       font-family:'Inter',sans-serif;
       min-height:100vh;
@@ -21,7 +20,6 @@
       position:relative;
       overflow:hidden;
     }
-    /* Light warm overlay so photo shows through */
     body::before {
       content:'';
       position:fixed;inset:0;
@@ -29,18 +27,18 @@
       z-index:0;
     }
 
-    /* â”€â”€ PROGRESS BAR â”€â”€ */
+    /* PROGRESS BAR */
     #pBar {
       position:fixed;top:0;left:0;
       height:4px;
       background:linear-gradient(90deg,#0d9488,#2dd4bf);
       border-radius:0 2px 2px 0;
       z-index:200;
-      transition:width 0.5s cubic-bezier(.4,0,.2,1);
+      transition:width 0.5s ease;
       box-shadow:0 0 12px rgba(13,148,136,0.7);
     }
 
-    /* â”€â”€ TOP BAR â”€â”€ */
+    /* TOP BAR */
     .top-bar {
       position:fixed;top:0;left:0;right:0;
       z-index:100;
@@ -56,7 +54,7 @@
     .logo-link img {height:40px;width:auto;display:block;}
     .q-count {font-size:0.78rem;font-weight:600;color:rgba(0,0,0,0.45);}
 
-    /* â”€â”€ PANELS â”€â”€ */
+    /* PANELS */
     .panel {
       position:fixed;inset:0;
       display:flex;align-items:center;justify-content:center;
@@ -73,11 +71,9 @@
       opacity:0;pointer-events:none;transform:translateY(-40px);
     }
 
-    /* â”€â”€ INNER CARD (glass) â”€â”€ */
     .inner {
       width:100%;max-width:600px;
     }
-    /* Light glass card behind each question */
     .q-card {
       background:rgba(255,255,255,0.55);
       backdrop-filter:blur(16px) saturate(130%);
@@ -88,7 +84,7 @@
       box-shadow:0 16px 60px rgba(0,0,0,0.18);
     }
 
-    /* â”€â”€ QUESTION NUMBER â”€â”€ */
+    /* QUESTION NUMBER */
     .q-num {
       display:inline-flex;align-items:center;gap:6px;
       font-size:0.82rem;font-weight:800;
@@ -101,7 +97,7 @@
       border-radius:4px;font-size:0.72rem;font-weight:900;
     }
 
-    /* â”€â”€ QUESTION TEXT â”€â”€ */
+    /* QUESTION TEXT */
     .q-card h2 {
       font-size:clamp(1.5rem,4vw,2.1rem);
       font-weight:700;color:#111827;
@@ -113,7 +109,7 @@
       font-style:italic;margin-bottom:22px;
     }
 
-    /* â”€â”€ INPUT â”€â”€ */
+    /* INPUT */
     .tf-input {
       width:100%;background:transparent;
       border:none;border-bottom:2px solid rgba(17,24,39,0.25);
@@ -128,7 +124,7 @@
     textarea.tf-input{resize:none;min-height:90px;border:1.5px solid rgba(17,24,39,0.2);border-radius:10px;padding:12px 14px;background:rgba(255,255,255,0.4);}
     textarea.tf-input:focus{border-color:#0d9488;background:rgba(255,255,255,0.6);}
 
-    /* â”€â”€ DOB â”€â”€ */
+    /* DOB */
     .dob-labels{display:flex;margin-bottom:6px;}
     .dob-labels span{flex:1;text-align:center;font-size:0.68rem;font-weight:700;color:rgba(17,24,39,0.4);text-transform:uppercase;letter-spacing:.06em;}
     .dob-labels .sp{width:18px;flex:none;}
@@ -145,24 +141,23 @@
     .dob-part:focus{border-bottom-color:#0d9488;}
     .dob-sep{padding:0 4px;font-size:1.3rem;font-weight:300;color:rgba(17,24,39,0.25);}
 
-    /* â”€â”€ OK BUTTON â”€â”€ */
+    /* OK BUTTON */
     .ok-btn {
       display:inline-flex;align-items:center;gap:7px;
       background:#0d9488;color:#fff;
       border:none;border-radius:7px;
-      padding:12px 22px;
-      font-size:0.95rem;font-weight:800;
+      padding:12px 28px;
+      font-size:1rem;font-weight:800;
       font-family:'Inter',sans-serif;
       cursor:pointer;
       transition:all .2s;
       box-shadow:0 4px 20px rgba(13,148,136,0.4);
+      -webkit-tap-highlight-color:transparent;
     }
     .ok-btn:hover{background:#0f766e;transform:translateY(-1px);}
     .ok-btn:active{transform:translateY(0);}
-    .hint{display:inline-block;font-size:0.72rem;color:rgba(17,24,39,0.35);margin-left:10px;}
-    .hint kbd{background:rgba(17,24,39,0.08);border:1px solid rgba(17,24,39,0.15);border-radius:3px;padding:1px 5px;font-size:0.68rem;}
 
-    /* â”€â”€ CHOICE BUTTONS â”€â”€ */
+    /* CHOICE BUTTONS */
     .choices{display:flex;flex-direction:column;gap:10px;margin-bottom:22px;}
     .ch-btn {
       display:flex;align-items:center;gap:14px;
@@ -174,6 +169,7 @@
       font-family:'Inter',sans-serif;
       transition:all .2s;
       text-align:left;
+      -webkit-tap-highlight-color:transparent;
     }
     .ch-btn:hover{border-color:#0d9488;background:rgba(255,255,255,0.85);}
     .ch-btn.sel{border-color:#0d9488;background:rgba(13,148,136,0.1);}
@@ -189,9 +185,9 @@
     .ch-body{flex:1;}
     .ch-body strong{display:block;font-size:.97rem;font-weight:700;color:#111827;}
     .ch-body small{font-size:.78rem;color:rgba(17,24,39,0.5);}
-    .ch-ico{font-size:1.4rem;}
+    .ch-ico{font-size:1.3rem;}
 
-    /* â”€â”€ REVIEW â”€â”€ */
+    /* REVIEW */
     .r-list{margin-bottom:22px;}
     .r-row{display:flex;align-items:flex-start;gap:12px;padding:11px 0;border-bottom:1px solid rgba(17,24,39,0.08);}
     .r-row:last-child{border:none;}
@@ -205,34 +201,34 @@
       cursor:pointer;transition:all .25s;
       display:flex;align-items:center;justify-content:center;gap:8px;
       box-shadow:0 8px 25px rgba(13,148,136,0.4);
+      -webkit-tap-highlight-color:transparent;
     }
-    .submit-btn:hover{transform:translateY(-2px);box-shadow:0 14px 35px rgba(13,148,136,0.55);}
+    .submit-btn:hover{transform:translateY(-2px);}
 
-    /* â”€â”€ THANK YOU â”€â”€ */
+    /* THANK YOU */
     .ty{text-align:center;}
-    .ty-ico{font-size:3.5rem;margin-bottom:14px;animation:pop .5s cubic-bezier(.175,.885,.32,1.275) both;}
-    @keyframes pop{from{opacity:0;transform:scale(.3)}to{opacity:1;transform:scale(1)}}
+    .ty-ico{font-size:3.5rem;margin-bottom:14px;}
     .ty h2{font-size:2rem;font-weight:900;color:#0d9488;margin-bottom:8px;}
     .ty .ty-sub{font-size:1rem;color:rgba(17,24,39,.6);font-style:italic;margin-bottom:20px;}
     .ref-box{display:inline-block;background:rgba(13,148,136,.1);border:1.5px solid rgba(13,148,136,.3);border-radius:10px;padding:12px 24px;font-size:1.1rem;font-weight:900;color:#0d9488;letter-spacing:.08em;margin-bottom:20px;}
     .ty-info{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,0.55);backdrop-filter:blur(10px);border-radius:10px;padding:14px 16px;font-size:.86rem;color:rgba(17,24,39,.65);margin-bottom:8px;text-align:left;}
 
-    /* â”€â”€ BACK NAV â”€â”€ */
-    #backNav{position:fixed;bottom:0;left:0;right:0;z-index:50;padding:14px 24px;display:none;align-items:center;justify-content:space-between;}
-    .back-btn{background:rgba(255,255,255,0.5);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.6);border-radius:8px;padding:9px 16px;font-size:.85rem;font-weight:700;color:rgba(17,24,39,.55);cursor:pointer;font-family:'Inter',sans-serif;transition:all .2s;}
+    /* BACK NAV */
+    #backNav{position:fixed;bottom:0;left:0;right:0;z-index:50;padding:14px 24px;display:none;align-items:center;}
+    .back-btn{background:rgba(255,255,255,0.5);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.6);border-radius:8px;padding:9px 16px;font-size:.85rem;font-weight:700;color:rgba(17,24,39,.55);cursor:pointer;font-family:'Inter',sans-serif;transition:all .2s;-webkit-tap-highlight-color:transparent;}
     .back-btn:hover{background:rgba(255,255,255,.8);color:#111827;}
 
-    /* â”€â”€ ERROR â”€â”€ */
+    /* ERROR */
     .qerr{font-size:.8rem;color:#dc2626;margin-top:-14px;margin-bottom:16px;display:none;}
 
-    /* â”€â”€ SPINNER â”€â”€ */
+    /* SPINNER */
     .spin{width:18px;height:18px;border:2.5px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:rot .7s linear infinite;display:inline-block;}
     @keyframes rot{to{transform:rotate(360deg)}}
 
-    /* â”€â”€ CONFETTI â”€â”€ */
+    /* CONFETTI */
     #cc{position:fixed;inset:0;pointer-events:none;z-index:9999;width:100%;height:100%;}
 
-    /* â”€â”€ MOBILE â”€â”€ */
+    /* MOBILE */
     @media(max-width:520px){
       .q-card{padding:26px 22px 24px;border-radius:16px;}
       .q-card h2{font-size:1.4rem;}
@@ -253,26 +249,25 @@
   <span class="q-count" id="qCount"></span>
 </div>
 
-<!-- â•â•â• Q1: Name â•â•â• -->
+<!-- Q1: Name -->
 <div class="panel" id="q1">
   <div class="inner">
     <div class="q-card">
-      <div class="q-num"><span class="nb">1</span> â†’</div>
+      <div class="q-num"><span class="nb">1</span></div>
       <h2>What's your <strong>full name?</strong> *</h2>
       <p class="sub">Let us know if you have a middle name as well.</p>
       <input class="tf-input" type="text" id="i-name" placeholder="Type your answer here..." autocomplete="name">
       <div class="qerr" id="e-name">Please enter your full name</div>
-      <button class="ok-btn" onclick="next(1)">OK âœ“</button>
-      <span class="hint">press <kbd>Enter</kbd> â†µ</span>
+      <button class="ok-btn" onclick="next(1)">OK</button>
     </div>
   </div>
 </div>
 
-<!-- â•â•â• Q2: DOB â•â•â• -->
+<!-- Q2: DOB -->
 <div class="panel" id="q2">
   <div class="inner">
     <div class="q-card">
-      <div class="q-num"><span class="nb">2</span> â†’</div>
+      <div class="q-num"><span class="nb">2</span></div>
       <h2>Nice to meet you! What is your <strong>date of birth?</strong> *</h2>
       <p class="sub">When were you born?</p>
       <div class="dob-labels">
@@ -288,148 +283,144 @@
         <input class="dob-part" id="dob-y" type="number" placeholder="YYYY" min="1920" max="2008" style="flex:1.6">
       </div>
       <div class="qerr" id="e-dob">Please enter a valid date of birth</div>
-      <button class="ok-btn" onclick="next(2)">OK âœ“</button>
+      <button class="ok-btn" onclick="next(2)">OK</button>
     </div>
   </div>
 </div>
 
-<!-- â•â•â• Q3: Mobile â•â•â• -->
+<!-- Q3: Mobile -->
 <div class="panel" id="q3">
   <div class="inner">
     <div class="q-card">
-      <div class="q-num"><span class="nb">3</span> â†’</div>
+      <div class="q-num"><span class="nb">3</span></div>
       <h2>What's your <strong>mobile number?</strong> *</h2>
       <p class="sub">We'll call you within 24 hours of applying.</p>
       <input class="tf-input" type="tel" id="i-mobile" placeholder="e.g. 07700 900 123" autocomplete="tel">
       <div class="qerr" id="e-mobile">Please enter a valid mobile number</div>
-      <button class="ok-btn" onclick="next(3)">OK âœ“</button>
-      <span class="hint">press <kbd>Enter</kbd> â†µ</span>
+      <button class="ok-btn" onclick="next(3)">OK</button>
     </div>
   </div>
 </div>
 
-<!-- â•â•â• Q4: Email â•â•â• -->
+<!-- Q4: Email -->
 <div class="panel" id="q4">
   <div class="inner">
     <div class="q-card">
-      <div class="q-num"><span class="nb">4</span> â†’</div>
+      <div class="q-num"><span class="nb">4</span></div>
       <h2>What's your <strong>email address?</strong> *</h2>
       <p class="sub">We'll send your application confirmation here.</p>
       <input class="tf-input" type="email" id="i-email" placeholder="name@example.com" autocomplete="email">
       <div class="qerr" id="e-email">Please enter a valid email address</div>
-      <button class="ok-btn" onclick="next(4)">OK âœ“</button>
-      <span class="hint">press <kbd>Enter</kbd> â†µ</span>
+      <button class="ok-btn" onclick="next(4)">OK</button>
     </div>
   </div>
 </div>
 
-<!-- â•â•â• Q5: Postcode â•â•â• -->
+<!-- Q5: Postcode -->
 <div class="panel" id="q5">
   <div class="inner">
     <div class="q-card">
-      <div class="q-num"><span class="nb">5</span> â†’</div>
+      <div class="q-num"><span class="nb">5</span></div>
       <h2>What's your <strong>postcode?</strong> *</h2>
       <p class="sub">Helps us match you to your nearest depot.</p>
       <input class="tf-input" type="text" id="i-postcode" placeholder="e.g. B1 1AA" autocomplete="postal-code" style="text-transform:uppercase;">
       <div class="qerr" id="e-postcode">Please enter your postcode</div>
-      <button class="ok-btn" onclick="next(5)">OK âœ“</button>
-      <span class="hint">press <kbd>Enter</kbd> â†µ</span>
+      <button class="ok-btn" onclick="next(5)">OK</button>
     </div>
   </div>
 </div>
 
-<!-- â•â•â• Q6: Right to Work â•â•â• -->
+<!-- Q6: Right to Work -->
 <div class="panel" id="q6">
   <div class="inner">
     <div class="q-card">
-      <div class="q-num"><span class="nb">6</span> â†’</div>
+      <div class="q-num"><span class="nb">6</span></div>
       <h2>Do you have the <strong>right to work</strong> in the UK? *</h2>
       <p class="sub">We are required by law to verify this before employment.</p>
       <div class="choices">
         <button class="ch-btn" onclick="pick(this,'rtw','Yes')">
           <div class="ch-key">A</div>
           <div class="ch-body"><strong>Yes, I have the right to work</strong><small>UK passport, BRP, visa or work permit</small></div>
-          <span class="ch-ico">âœ…</span>
+          <span class="ch-ico">Yes</span>
         </button>
         <button class="ch-btn" onclick="pick(this,'rtw','No')">
           <div class="ch-key">B</div>
           <div class="ch-body"><strong>No, I don't have the right to work</strong><small>I do not hold valid UK work authorisation</small></div>
-          <span class="ch-ico">âŒ</span>
+          <span class="ch-ico">No</span>
         </button>
       </div>
       <div class="qerr" id="e-rtw">Please select an option</div>
-      <button class="ok-btn" onclick="next(6)">OK âœ“</button>
+      <button class="ok-btn" onclick="next(6)">OK</button>
     </div>
   </div>
 </div>
 
-<!-- â•â•â• Q7: Own Van â•â•â• -->
+<!-- Q7: Own Van -->
 <div class="panel" id="q7">
   <div class="inner">
     <div class="q-card">
-      <div class="q-num"><span class="nb">7</span> â†’</div>
+      <div class="q-num"><span class="nb">7</span></div>
       <h2>Do you have <strong>your own van?</strong> *</h2>
-      <p class="sub">Don't worry if not â€” we can arrange a rental vehicle.</p>
+      <p class="sub">Don't worry if not - we can arrange a rental vehicle.</p>
       <div class="choices">
-        <button class="ch-btn" onclick="pick(this,'van','Yes â€” I have my own van')">
+        <button class="ch-btn" onclick="pick(this,'van','Yes - I have my own van')">
           <div class="ch-key">A</div>
           <div class="ch-body"><strong>Yes, I have my own van</strong><small>I'll use my own vehicle for deliveries</small></div>
-          <span class="ch-ico">ðŸš</span>
+          <span class="ch-ico">Van</span>
         </button>
-        <button class="ch-btn" onclick="pick(this,'van','No â€” I would like to rent a vehicle')">
+        <button class="ch-btn" onclick="pick(this,'van','No - I would like to rent a vehicle')">
           <div class="ch-key">B</div>
           <div class="ch-body"><strong>No, I'd like to rent a vehicle</strong><small>I'd like to rent through Fast Route Logistics</small></div>
-          <span class="ch-ico">ðŸ”‘</span>
+          <span class="ch-ico">Rent</span>
         </button>
       </div>
       <div class="qerr" id="e-van">Please select an option</div>
-      <button class="ok-btn" onclick="next(7)">OK âœ“</button>
+      <button class="ok-btn" onclick="next(7)">OK</button>
     </div>
   </div>
 </div>
 
-<!-- â•â•â• Q8: Experience â•â•â• -->
+<!-- Q8: Experience -->
 <div class="panel" id="q8">
   <div class="inner">
     <div class="q-card">
-      <div class="q-num"><span class="nb">8</span> â†’</div>
+      <div class="q-num"><span class="nb">8</span></div>
       <h2>What <strong>experience</strong> do you have? *</h2>
-      <p class="sub">Any driving or logistics experience helps â€” even if it's just a little!</p>
+      <p class="sub">Any driving or logistics experience helps - even if it's just a little!</p>
       <textarea class="tf-input" id="i-exp" placeholder="e.g. 2 years driving for Amazon Logistics, experience with parcel scanning, clean DBS check..." rows="3"></textarea>
       <div class="qerr" id="e-exp">Please tell us about your experience</div>
-      <button class="ok-btn" onclick="next(8)">OK âœ“</button>
+      <button class="ok-btn" onclick="next(8)">OK</button>
     </div>
   </div>
 </div>
 
-<!-- â•â•â• Q9: Review â•â•â• -->
+<!-- Q9: Review -->
 <div class="panel" id="q9">
   <div class="inner" style="max-width:640px;">
     <div class="q-card">
-      <div class="q-num"><span class="nb">9</span> â†’</div>
+      <div class="q-num"><span class="nb">9</span></div>
       <h2>Almost done! <strong>Review your answers.</strong></h2>
       <p class="sub">Check everything is correct before submitting.</p>
       <div class="r-list" id="rList"></div>
       <button class="submit-btn" id="subBtn" onclick="doSubmit()">
-        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13M22 2L15 22 11 13 2 9l20-7z"/></svg>
         Submit My Application
       </button>
     </div>
   </div>
 </div>
 
-<!-- â•â•â• THANK YOU â•â•â• -->
+<!-- THANK YOU -->
 <div class="panel" id="q10">
   <div class="inner">
     <div class="q-card">
       <div class="ty">
-        <div class="ty-ico">ðŸŽ‰</div>
+        <div class="ty-ico">&#127881;</div>
         <h2>Thank you!</h2>
         <p class="ty-sub">We will be in touch with you soon.</p>
         <div class="ref-box" id="refNum">FRL-XXXXXXX</div>
-        <div class="ty-info">ðŸ“ž Our team will call you on your provided number to book training.</div>
-        <div class="ty-info">ðŸ“‹ Keep your reference number â€” you may need it.</div>
-        <a href="index.html" style="display:inline-block;margin-top:16px;color:#0d9488;font-size:.87rem;text-decoration:none;font-weight:600;">â† Back to Fast Route Logistics</a>
+        <div class="ty-info">Our team will call you on your provided number to book training.</div>
+        <div class="ty-info">Keep your reference number - you may need it.</div>
+        <a href="index.html" style="display:inline-block;margin-top:16px;color:#0d9488;font-size:.87rem;text-decoration:none;font-weight:600;">Back to Fast Route Logistics</a>
       </div>
     </div>
   </div>
@@ -437,28 +428,29 @@
 
 <!-- BACK NAV -->
 <div id="backNav">
-  <button class="back-btn" onclick="goBack()">â†‘ Back</button>
+  <button class="back-btn" onclick="goBack()">Back</button>
 </div>
 
 <script>
-const SURL='https://script.google.com/macros/s/AKfycbyCGlanLwk_E6oM41T-1fl02kO11QVihv8mUm71BWrCXsY_G5hQ7J4yCdk6qChI-s8M/exec';
-const TOTAL=9;
-let cur=1;
-const d={name:'',dob:'',mobile:'',email:'',postcode:'',rtw:'',van:'',experience:''};
+var SURL='https://script.google.com/macros/s/AKfycbyCGlanLwk_E6oM41T-1fl02kO11QVihv8mUm71BWrCXsY_G5hQ7J4yCdk6qChI-s8M/exec';
+var TOTAL=9;
+var cur=1;
+var d={name:'',dob:'',mobile:'',email:'',postcode:'',rtw:'',van:'',experience:''};
 
 function prog(n){
-  document.getElementById('pBar').style.width=(n<=0?2:Math.round(n/(TOTAL+1)*100))+'%';
-  document.getElementById('qCount').textContent=n>=1&&n<=TOTAL?n+' / '+TOTAL:'';
-  document.getElementById('backNav').style.display=n>1&&n<=TOTAL?'flex':'none';
+  var pct=n<=0?2:Math.round(n/(TOTAL+1)*100);
+  document.getElementById('pBar').style.width=pct+'%';
+  document.getElementById('qCount').textContent=(n>=1&&n<=TOTAL)?n+' of '+TOTAL:'';
+  document.getElementById('backNav').style.display=(n>1&&n<=TOTAL)?'flex':'none';
 }
 
 function show(n){
-  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active','out-up'));
-  const p=document.getElementById('q'+n);
+  document.querySelectorAll('.panel').forEach(function(p){p.classList.remove('active','out-up');});
+  var p=document.getElementById('q'+n);
   if(!p)return;
   p.classList.add('active');
-  setTimeout(()=>{
-    const inp=p.querySelector('input:not([type=number]),textarea');
+  setTimeout(function(){
+    var inp=p.querySelector('input:not([type=number]),textarea');
     if(inp)inp.focus();
   },380);
   prog(n-1);
@@ -468,60 +460,77 @@ function show(n){
 function goBack(){if(cur>1)show(cur-1);}
 
 function pick(el,key,val){
-  el.closest('.choices').querySelectorAll('.ch-btn').forEach(b=>b.classList.remove('sel'));
-  el.classList.add('sel');d[key]=val;
-  const e=document.getElementById('e-'+key);if(e)e.style.display='none';
+  el.closest('.choices').querySelectorAll('.ch-btn').forEach(function(b){b.classList.remove('sel');});
+  el.classList.add('sel');
+  d[key]=val;
+  var e=document.getElementById('e-'+key);
+  if(e)e.style.display='none';
 }
 
-function err(id){
-  const e=document.getElementById(id);
-  if(e){e.style.display='block';setTimeout(()=>e.style.display='none',3000);}
+function showErr(id){
+  var e=document.getElementById(id);
+  if(e){e.style.display='block';setTimeout(function(){e.style.display='none';},3000);}
 }
 
 function next(n){
-  // validate
   if(n===1){
-    const v=document.getElementById('i-name').value.trim();
-    if(v.length<2){err('e-name');return;}d.name=v;
+    var v=document.getElementById('i-name').value.trim();
+    if(v.length<2){showErr('e-name');return;}d.name=v;
   }else if(n===2){
-    const dd=+document.getElementById('dob-d').value;
-    const mm=+document.getElementById('dob-m').value;
-    const yy=+document.getElementById('dob-y').value;
-    if(!dd||!mm||!yy||yy<1920||yy>2008||dd<1||dd>31||mm<1||mm>12){err('e-dob');return;}
+    var dd=+document.getElementById('dob-d').value;
+    var mm=+document.getElementById('dob-m').value;
+    var yy=+document.getElementById('dob-y').value;
+    if(!dd||!mm||!yy||yy<1920||yy>2008||dd<1||dd>31||mm<1||mm>12){showErr('e-dob');return;}
     d.dob=String(dd).padStart(2,'0')+'/'+String(mm).padStart(2,'0')+'/'+yy;
   }else if(n===3){
-    const v=document.getElementById('i-mobile').value.trim();
-    if(v.length<7){err('e-mobile');return;}d.mobile=v;
+    var v=document.getElementById('i-mobile').value.trim();
+    if(v.length<7){showErr('e-mobile');return;}d.mobile=v;
   }else if(n===4){
-    const v=document.getElementById('i-email').value.trim();
-    if(!v.includes('@')||!v.includes('.')){err('e-email');return;}d.email=v;
+    var v=document.getElementById('i-email').value.trim();
+    if(!v.includes('@')||!v.includes('.')){showErr('e-email');return;}d.email=v;
   }else if(n===5){
-    const v=document.getElementById('i-postcode').value.trim().toUpperCase();
-    if(v.length<5){err('e-postcode');return;}d.postcode=v;
+    var v=document.getElementById('i-postcode').value.trim().toUpperCase();
+    if(v.length<5){showErr('e-postcode');return;}d.postcode=v;
   }else if(n===6){
-    if(!d.rtw){err('e-rtw');return;}
+    if(!d.rtw){showErr('e-rtw');return;}
   }else if(n===7){
-    if(!d.van){err('e-van');return;}
+    if(!d.van){showErr('e-van');return;}
   }else if(n===8){
-    const v=document.getElementById('i-exp').value.trim();
-    if(v.length<5){err('e-exp');return;}d.experience=v;
+    var v=document.getElementById('i-exp').value.trim();
+    if(v.length<5){showErr('e-exp');return;}d.experience=v;
     buildReview();
   }
   show(n+1);
 }
 
 function buildReview(){
-  const rows=[['Full Name',d.name],['Date of Birth',d.dob],['Mobile',d.mobile],['Email',d.email],['Postcode',d.postcode],['Right to Work',d.rtw],['Own Van?',d.van],['Experience',d.experience]];
-  document.getElementById('rList').innerHTML=rows.map(r=>`<div class="r-row"><div class="r-lbl">${r[0]}</div><div class="r-val">${r[1]||'â€”'}</div></div>`).join('');
+  var rows=[
+    ['Full Name',d.name],['Date of Birth',d.dob],
+    ['Mobile',d.mobile],['Email',d.email],
+    ['Postcode',d.postcode],['Right to Work',d.rtw],
+    ['Own Van',d.van],['Experience',d.experience]
+  ];
+  document.getElementById('rList').innerHTML=rows.map(function(r){
+    return '<div class="r-row"><div class="r-lbl">'+r[0]+'</div><div class="r-val">'+(r[1]||'-')+'</div></div>';
+  }).join('');
 }
 
 async function doSubmit(){
-  const btn=document.getElementById('subBtn');
-  btn.innerHTML='<span class="spin"></span> Submittingâ€¦';btn.disabled=true;
-  const ref='FRL-'+Math.random().toString(36).substr(2,7).toUpperCase();
+  var btn=document.getElementById('subBtn');
+  btn.innerHTML='<span class="spin"></span> Submitting...';
+  btn.disabled=true;
+  var ref='FRL-'+Math.random().toString(36).substr(2,7).toUpperCase();
   try{
-    await fetch(SURL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({timestamp:new Date().toLocaleString('en-GB'),reference:ref,fullName:d.name,dob:d.dob,mobile:d.mobile,email:d.email,postcode:d.postcode,rightToWork:d.rtw,ownVan:d.van,experience:d.experience})});
+    await fetch(SURL,{
+      method:'POST',mode:'no-cors',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        timestamp:new Date().toLocaleString('en-GB'),
+        reference:ref,fullName:d.name,dob:d.dob,
+        mobile:d.mobile,email:d.email,postcode:d.postcode,
+        rightToWork:d.rtw,ownVan:d.van,experience:d.experience
+      })
+    });
   }catch(e){console.log(e);}
   document.getElementById('refNum').textContent=ref;
   show(10);
@@ -529,40 +538,58 @@ async function doSubmit(){
   confetti();
 }
 
-// Keyboard Enter to advance
-document.addEventListener('keydown',e=>{
+document.addEventListener('keydown',function(e){
   if(e.key!=='Enter')return;
-  const p=document.getElementById('q'+cur);if(!p)return;
+  var p=document.getElementById('q'+cur);if(!p)return;
   if(document.activeElement&&document.activeElement.tagName==='TEXTAREA')return;
-  const btn=p.querySelector('.ok-btn');if(btn)btn.click();
+  var btn=p.querySelector('.ok-btn');if(btn)btn.click();
 });
 
-// DOB auto-tab
-document.addEventListener('DOMContentLoaded',()=>{
-  const dParts=[['dob-d',2,'dob-m'],['dob-m',2,'dob-y']];
-  dParts.forEach(([id,len,nxt])=>{
-    const el=document.getElementById(id);
-    if(el)el.addEventListener('input',function(){if(this.value.length>=len)document.getElementById(nxt)?.focus();});
+document.addEventListener('DOMContentLoaded',function(){
+  var dParts=[['dob-d',2,'dob-m'],['dob-m',2,'dob-y']];
+  dParts.forEach(function(item){
+    var el=document.getElementById(item[0]);
+    if(el)el.addEventListener('input',function(){
+      if(this.value.length>=item[1])document.getElementById(item[2]).focus();
+    });
   });
-  const pc=document.getElementById('i-postcode');
+  var pc=document.getElementById('i-postcode');
   if(pc)pc.addEventListener('input',function(){this.value=this.value.toUpperCase();});
   show(1);
 });
 
 function confetti(){
-  const cv=document.getElementById('cc'),ctx=cv.getContext('2d');
+  var cv=document.getElementById('cc'),ctx=cv.getContext('2d');
   cv.width=window.innerWidth;cv.height=window.innerHeight;
-  const c=['#0d9488','#2dd4bf','#99f6e4','#fff','#f0fdf4','#ccfbf1'];
-  const ps=Array.from({length:130},()=>({x:Math.random()*cv.width,y:-Math.random()*150,w:7+Math.random()*9,h:3+Math.random()*5,c:c[~~(Math.random()*c.length)],a:Math.random()*360,sp:(Math.random()-.5)*5,vy:3+Math.random()*4,vx:(Math.random()-.5)*3,op:1}));
-  let fr;
-  (function draw(){
-    ctx.clearRect(0,0,cv.width,cv.height);let alive=false;
-    ps.forEach(p=>{if(p.y<cv.height+20)alive=true;p.y+=p.vy;p.x+=p.vx;p.a+=p.sp;p.op-=.007;ctx.save();ctx.globalAlpha=Math.max(0,p.op);ctx.translate(p.x,p.y);ctx.rotate(p.a*Math.PI/180);ctx.fillStyle=p.c;ctx.fillRect(-p.w/2,-p.h/2,p.w,p.h);ctx.restore();});
-    if(alive)fr=requestAnimationFrame(draw);else ctx.clearRect(0,0,cv.width,cv.height);
-  })();
-  setTimeout(()=>cancelAnimationFrame(fr),5000);
+  var c=['#0d9488','#2dd4bf','#99f6e4','#fff','#f0fdf4'];
+  var ps=[];
+  for(var i=0;i<120;i++){
+    ps.push({
+      x:Math.random()*cv.width,y:-Math.random()*150,
+      w:7+Math.random()*9,h:3+Math.random()*5,
+      c:c[Math.floor(Math.random()*c.length)],
+      a:Math.random()*360,sp:(Math.random()-.5)*5,
+      vy:3+Math.random()*4,vx:(Math.random()-.5)*3,op:1
+    });
+  }
+  var fr;
+  function draw(){
+    ctx.clearRect(0,0,cv.width,cv.height);
+    var alive=false;
+    ps.forEach(function(p){
+      if(p.y<cv.height+20)alive=true;
+      p.y+=p.vy;p.x+=p.vx;p.a+=p.sp;p.op-=.007;
+      ctx.save();ctx.globalAlpha=Math.max(0,p.op);
+      ctx.translate(p.x,p.y);ctx.rotate(p.a*Math.PI/180);
+      ctx.fillStyle=p.c;ctx.fillRect(-p.w/2,-p.h/2,p.w,p.h);
+      ctx.restore();
+    });
+    if(alive)fr=requestAnimationFrame(draw);
+    else ctx.clearRect(0,0,cv.width,cv.height);
+  }
+  draw();
+  setTimeout(function(){cancelAnimationFrame(fr);},5000);
 }
 </script>
 </body>
 </html>
-
