@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
   <!-- v3.0 Typeform-style | cache:bust-2026-04-21 -->
-  <title>Join Fast Route Logistics — Driver Recruitment</title>
+  <title>Join Fast Route Logistics â€” Driver Recruitment</title>
   <meta name="description" content="Apply to become a Fast Route Logistics driver. Takes under 2 minutes.">
   <link rel="icon" type="image/png" href="images/logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,7 +13,7 @@
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     html{font-size:16px}
 
-    /* ── BODY = BG PHOTO ── */
+    /* â”€â”€ BODY = BG PHOTO â”€â”€ */
     body {
       font-family:'Inter',sans-serif;
       min-height:100vh;
@@ -29,7 +29,7 @@
       z-index:0;
     }
 
-    /* ── PROGRESS BAR ── */
+    /* â”€â”€ PROGRESS BAR â”€â”€ */
     #pBar {
       position:fixed;top:0;left:0;
       height:4px;
@@ -40,19 +40,23 @@
       box-shadow:0 0 12px rgba(13,148,136,0.7);
     }
 
-    /* ── TOP BAR ── */
+    /* â”€â”€ TOP BAR â”€â”€ */
     .top-bar {
       position:fixed;top:0;left:0;right:0;
       z-index:100;
       display:flex;align-items:center;justify-content:space-between;
-      padding:14px 24px 0;
+      padding:10px 24px 0;
+      background:rgba(255,255,255,0.55);
+      backdrop-filter:blur(14px);
+      -webkit-backdrop-filter:blur(14px);
+      border-bottom:1px solid rgba(255,255,255,0.45);
+      height:62px;
     }
-    .logo-link {display:flex;align-items:center;gap:10px;text-decoration:none;}
-    .logo-link img {width:36px;height:36px;border-radius:8px;object-fit:cover;border:1.5px solid rgba(255,255,255,0.5);box-shadow:0 2px 10px rgba(0,0,0,0.2);}
-    .logo-name {font-size:0.85rem;font-weight:800;color:#111;}
+    .logo-link {display:flex;align-items:center;text-decoration:none;}
+    .logo-link img {height:40px;width:auto;display:block;}
     .q-count {font-size:0.78rem;font-weight:600;color:rgba(0,0,0,0.45);}
 
-    /* ── PANELS ── */
+    /* â”€â”€ PANELS â”€â”€ */
     .panel {
       position:fixed;inset:0;
       display:flex;align-items:center;justify-content:center;
@@ -69,7 +73,7 @@
       opacity:0;pointer-events:none;transform:translateY(-40px);
     }
 
-    /* ── INNER CARD (glass) ── */
+    /* â”€â”€ INNER CARD (glass) â”€â”€ */
     .inner {
       width:100%;max-width:600px;
     }
@@ -84,7 +88,7 @@
       box-shadow:0 16px 60px rgba(0,0,0,0.18);
     }
 
-    /* ── QUESTION NUMBER ── */
+    /* â”€â”€ QUESTION NUMBER â”€â”€ */
     .q-num {
       display:inline-flex;align-items:center;gap:6px;
       font-size:0.82rem;font-weight:800;
@@ -97,7 +101,7 @@
       border-radius:4px;font-size:0.72rem;font-weight:900;
     }
 
-    /* ── QUESTION TEXT ── */
+    /* â”€â”€ QUESTION TEXT â”€â”€ */
     .q-card h2 {
       font-size:clamp(1.5rem,4vw,2.1rem);
       font-weight:700;color:#111827;
@@ -109,7 +113,7 @@
       font-style:italic;margin-bottom:22px;
     }
 
-    /* ── INPUT ── */
+    /* â”€â”€ INPUT â”€â”€ */
     .tf-input {
       width:100%;background:transparent;
       border:none;border-bottom:2px solid rgba(17,24,39,0.25);
@@ -124,7 +128,7 @@
     textarea.tf-input{resize:none;min-height:90px;border:1.5px solid rgba(17,24,39,0.2);border-radius:10px;padding:12px 14px;background:rgba(255,255,255,0.4);}
     textarea.tf-input:focus{border-color:#0d9488;background:rgba(255,255,255,0.6);}
 
-    /* ── DOB ── */
+    /* â”€â”€ DOB â”€â”€ */
     .dob-labels{display:flex;margin-bottom:6px;}
     .dob-labels span{flex:1;text-align:center;font-size:0.68rem;font-weight:700;color:rgba(17,24,39,0.4);text-transform:uppercase;letter-spacing:.06em;}
     .dob-labels .sp{width:18px;flex:none;}
@@ -141,7 +145,7 @@
     .dob-part:focus{border-bottom-color:#0d9488;}
     .dob-sep{padding:0 4px;font-size:1.3rem;font-weight:300;color:rgba(17,24,39,0.25);}
 
-    /* ── OK BUTTON ── */
+    /* â”€â”€ OK BUTTON â”€â”€ */
     .ok-btn {
       display:inline-flex;align-items:center;gap:7px;
       background:#0d9488;color:#fff;
@@ -158,7 +162,7 @@
     .hint{display:inline-block;font-size:0.72rem;color:rgba(17,24,39,0.35);margin-left:10px;}
     .hint kbd{background:rgba(17,24,39,0.08);border:1px solid rgba(17,24,39,0.15);border-radius:3px;padding:1px 5px;font-size:0.68rem;}
 
-    /* ── CHOICE BUTTONS ── */
+    /* â”€â”€ CHOICE BUTTONS â”€â”€ */
     .choices{display:flex;flex-direction:column;gap:10px;margin-bottom:22px;}
     .ch-btn {
       display:flex;align-items:center;gap:14px;
@@ -187,7 +191,7 @@
     .ch-body small{font-size:.78rem;color:rgba(17,24,39,0.5);}
     .ch-ico{font-size:1.4rem;}
 
-    /* ── REVIEW ── */
+    /* â”€â”€ REVIEW â”€â”€ */
     .r-list{margin-bottom:22px;}
     .r-row{display:flex;align-items:flex-start;gap:12px;padding:11px 0;border-bottom:1px solid rgba(17,24,39,0.08);}
     .r-row:last-child{border:none;}
@@ -204,7 +208,7 @@
     }
     .submit-btn:hover{transform:translateY(-2px);box-shadow:0 14px 35px rgba(13,148,136,0.55);}
 
-    /* ── THANK YOU ── */
+    /* â”€â”€ THANK YOU â”€â”€ */
     .ty{text-align:center;}
     .ty-ico{font-size:3.5rem;margin-bottom:14px;animation:pop .5s cubic-bezier(.175,.885,.32,1.275) both;}
     @keyframes pop{from{opacity:0;transform:scale(.3)}to{opacity:1;transform:scale(1)}}
@@ -213,22 +217,22 @@
     .ref-box{display:inline-block;background:rgba(13,148,136,.1);border:1.5px solid rgba(13,148,136,.3);border-radius:10px;padding:12px 24px;font-size:1.1rem;font-weight:900;color:#0d9488;letter-spacing:.08em;margin-bottom:20px;}
     .ty-info{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,0.55);backdrop-filter:blur(10px);border-radius:10px;padding:14px 16px;font-size:.86rem;color:rgba(17,24,39,.65);margin-bottom:8px;text-align:left;}
 
-    /* ── BACK NAV ── */
+    /* â”€â”€ BACK NAV â”€â”€ */
     #backNav{position:fixed;bottom:0;left:0;right:0;z-index:50;padding:14px 24px;display:none;align-items:center;justify-content:space-between;}
     .back-btn{background:rgba(255,255,255,0.5);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.6);border-radius:8px;padding:9px 16px;font-size:.85rem;font-weight:700;color:rgba(17,24,39,.55);cursor:pointer;font-family:'Inter',sans-serif;transition:all .2s;}
     .back-btn:hover{background:rgba(255,255,255,.8);color:#111827;}
 
-    /* ── ERROR ── */
+    /* â”€â”€ ERROR â”€â”€ */
     .qerr{font-size:.8rem;color:#dc2626;margin-top:-14px;margin-bottom:16px;display:none;}
 
-    /* ── SPINNER ── */
+    /* â”€â”€ SPINNER â”€â”€ */
     .spin{width:18px;height:18px;border:2.5px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:rot .7s linear infinite;display:inline-block;}
     @keyframes rot{to{transform:rotate(360deg)}}
 
-    /* ── CONFETTI ── */
+    /* â”€â”€ CONFETTI â”€â”€ */
     #cc{position:fixed;inset:0;pointer-events:none;z-index:9999;width:100%;height:100%;}
 
-    /* ── MOBILE ── */
+    /* â”€â”€ MOBILE â”€â”€ */
     @media(max-width:520px){
       .q-card{padding:26px 22px 24px;border-radius:16px;}
       .q-card h2{font-size:1.4rem;}
@@ -244,32 +248,31 @@
 <!-- TOP BAR -->
 <div class="top-bar">
   <a class="logo-link" href="index.html">
-    <img src="images/logo.png" alt="FRL">
-    <span class="logo-name">Fast Route Logistics</span>
+    <img src="images/frl-logo.svg" alt="Fast Route Logistics">
   </a>
   <span class="q-count" id="qCount"></span>
 </div>
 
-<!-- ═══ Q1: Name ═══ -->
+<!-- â•â•â• Q1: Name â•â•â• -->
 <div class="panel" id="q1">
   <div class="inner">
     <div class="q-card">
-      <div class="q-num"><span class="nb">1</span> →</div>
+      <div class="q-num"><span class="nb">1</span> â†’</div>
       <h2>What's your <strong>full name?</strong> *</h2>
       <p class="sub">Let us know if you have a middle name as well.</p>
       <input class="tf-input" type="text" id="i-name" placeholder="Type your answer here..." autocomplete="name">
       <div class="qerr" id="e-name">Please enter your full name</div>
-      <button class="ok-btn" onclick="next(1)">OK ✓</button>
-      <span class="hint">press <kbd>Enter</kbd> ↵</span>
+      <button class="ok-btn" onclick="next(1)">OK âœ“</button>
+      <span class="hint">press <kbd>Enter</kbd> â†µ</span>
     </div>
   </div>
 </div>
 
-<!-- ═══ Q2: DOB ═══ -->
+<!-- â•â•â• Q2: DOB â•â•â• -->
 <div class="panel" id="q2">
   <div class="inner">
     <div class="q-card">
-      <div class="q-num"><span class="nb">2</span> →</div>
+      <div class="q-num"><span class="nb">2</span> â†’</div>
       <h2>Nice to meet you! What is your <strong>date of birth?</strong> *</h2>
       <p class="sub">When were you born?</p>
       <div class="dob-labels">
@@ -285,125 +288,125 @@
         <input class="dob-part" id="dob-y" type="number" placeholder="YYYY" min="1920" max="2008" style="flex:1.6">
       </div>
       <div class="qerr" id="e-dob">Please enter a valid date of birth</div>
-      <button class="ok-btn" onclick="next(2)">OK ✓</button>
+      <button class="ok-btn" onclick="next(2)">OK âœ“</button>
     </div>
   </div>
 </div>
 
-<!-- ═══ Q3: Mobile ═══ -->
+<!-- â•â•â• Q3: Mobile â•â•â• -->
 <div class="panel" id="q3">
   <div class="inner">
     <div class="q-card">
-      <div class="q-num"><span class="nb">3</span> →</div>
+      <div class="q-num"><span class="nb">3</span> â†’</div>
       <h2>What's your <strong>mobile number?</strong> *</h2>
       <p class="sub">We'll call you within 24 hours of applying.</p>
       <input class="tf-input" type="tel" id="i-mobile" placeholder="e.g. 07700 900 123" autocomplete="tel">
       <div class="qerr" id="e-mobile">Please enter a valid mobile number</div>
-      <button class="ok-btn" onclick="next(3)">OK ✓</button>
-      <span class="hint">press <kbd>Enter</kbd> ↵</span>
+      <button class="ok-btn" onclick="next(3)">OK âœ“</button>
+      <span class="hint">press <kbd>Enter</kbd> â†µ</span>
     </div>
   </div>
 </div>
 
-<!-- ═══ Q4: Email ═══ -->
+<!-- â•â•â• Q4: Email â•â•â• -->
 <div class="panel" id="q4">
   <div class="inner">
     <div class="q-card">
-      <div class="q-num"><span class="nb">4</span> →</div>
+      <div class="q-num"><span class="nb">4</span> â†’</div>
       <h2>What's your <strong>email address?</strong> *</h2>
       <p class="sub">We'll send your application confirmation here.</p>
       <input class="tf-input" type="email" id="i-email" placeholder="name@example.com" autocomplete="email">
       <div class="qerr" id="e-email">Please enter a valid email address</div>
-      <button class="ok-btn" onclick="next(4)">OK ✓</button>
-      <span class="hint">press <kbd>Enter</kbd> ↵</span>
+      <button class="ok-btn" onclick="next(4)">OK âœ“</button>
+      <span class="hint">press <kbd>Enter</kbd> â†µ</span>
     </div>
   </div>
 </div>
 
-<!-- ═══ Q5: Postcode ═══ -->
+<!-- â•â•â• Q5: Postcode â•â•â• -->
 <div class="panel" id="q5">
   <div class="inner">
     <div class="q-card">
-      <div class="q-num"><span class="nb">5</span> →</div>
+      <div class="q-num"><span class="nb">5</span> â†’</div>
       <h2>What's your <strong>postcode?</strong> *</h2>
       <p class="sub">Helps us match you to your nearest depot.</p>
       <input class="tf-input" type="text" id="i-postcode" placeholder="e.g. B1 1AA" autocomplete="postal-code" style="text-transform:uppercase;">
       <div class="qerr" id="e-postcode">Please enter your postcode</div>
-      <button class="ok-btn" onclick="next(5)">OK ✓</button>
-      <span class="hint">press <kbd>Enter</kbd> ↵</span>
+      <button class="ok-btn" onclick="next(5)">OK âœ“</button>
+      <span class="hint">press <kbd>Enter</kbd> â†µ</span>
     </div>
   </div>
 </div>
 
-<!-- ═══ Q6: Right to Work ═══ -->
+<!-- â•â•â• Q6: Right to Work â•â•â• -->
 <div class="panel" id="q6">
   <div class="inner">
     <div class="q-card">
-      <div class="q-num"><span class="nb">6</span> →</div>
+      <div class="q-num"><span class="nb">6</span> â†’</div>
       <h2>Do you have the <strong>right to work</strong> in the UK? *</h2>
       <p class="sub">We are required by law to verify this before employment.</p>
       <div class="choices">
         <button class="ch-btn" onclick="pick(this,'rtw','Yes')">
           <div class="ch-key">A</div>
           <div class="ch-body"><strong>Yes, I have the right to work</strong><small>UK passport, BRP, visa or work permit</small></div>
-          <span class="ch-ico">✅</span>
+          <span class="ch-ico">âœ…</span>
         </button>
         <button class="ch-btn" onclick="pick(this,'rtw','No')">
           <div class="ch-key">B</div>
           <div class="ch-body"><strong>No, I don't have the right to work</strong><small>I do not hold valid UK work authorisation</small></div>
-          <span class="ch-ico">❌</span>
+          <span class="ch-ico">âŒ</span>
         </button>
       </div>
       <div class="qerr" id="e-rtw">Please select an option</div>
-      <button class="ok-btn" onclick="next(6)">OK ✓</button>
+      <button class="ok-btn" onclick="next(6)">OK âœ“</button>
     </div>
   </div>
 </div>
 
-<!-- ═══ Q7: Own Van ═══ -->
+<!-- â•â•â• Q7: Own Van â•â•â• -->
 <div class="panel" id="q7">
   <div class="inner">
     <div class="q-card">
-      <div class="q-num"><span class="nb">7</span> →</div>
+      <div class="q-num"><span class="nb">7</span> â†’</div>
       <h2>Do you have <strong>your own van?</strong> *</h2>
-      <p class="sub">Don't worry if not — we can arrange a rental vehicle.</p>
+      <p class="sub">Don't worry if not â€” we can arrange a rental vehicle.</p>
       <div class="choices">
-        <button class="ch-btn" onclick="pick(this,'van','Yes — I have my own van')">
+        <button class="ch-btn" onclick="pick(this,'van','Yes â€” I have my own van')">
           <div class="ch-key">A</div>
           <div class="ch-body"><strong>Yes, I have my own van</strong><small>I'll use my own vehicle for deliveries</small></div>
-          <span class="ch-ico">🚐</span>
+          <span class="ch-ico">ðŸš</span>
         </button>
-        <button class="ch-btn" onclick="pick(this,'van','No — I would like to rent a vehicle')">
+        <button class="ch-btn" onclick="pick(this,'van','No â€” I would like to rent a vehicle')">
           <div class="ch-key">B</div>
           <div class="ch-body"><strong>No, I'd like to rent a vehicle</strong><small>I'd like to rent through Fast Route Logistics</small></div>
-          <span class="ch-ico">🔑</span>
+          <span class="ch-ico">ðŸ”‘</span>
         </button>
       </div>
       <div class="qerr" id="e-van">Please select an option</div>
-      <button class="ok-btn" onclick="next(7)">OK ✓</button>
+      <button class="ok-btn" onclick="next(7)">OK âœ“</button>
     </div>
   </div>
 </div>
 
-<!-- ═══ Q8: Experience ═══ -->
+<!-- â•â•â• Q8: Experience â•â•â• -->
 <div class="panel" id="q8">
   <div class="inner">
     <div class="q-card">
-      <div class="q-num"><span class="nb">8</span> →</div>
+      <div class="q-num"><span class="nb">8</span> â†’</div>
       <h2>What <strong>experience</strong> do you have? *</h2>
-      <p class="sub">Any driving or logistics experience helps — even if it's just a little!</p>
+      <p class="sub">Any driving or logistics experience helps â€” even if it's just a little!</p>
       <textarea class="tf-input" id="i-exp" placeholder="e.g. 2 years driving for Amazon Logistics, experience with parcel scanning, clean DBS check..." rows="3"></textarea>
       <div class="qerr" id="e-exp">Please tell us about your experience</div>
-      <button class="ok-btn" onclick="next(8)">OK ✓</button>
+      <button class="ok-btn" onclick="next(8)">OK âœ“</button>
     </div>
   </div>
 </div>
 
-<!-- ═══ Q9: Review ═══ -->
+<!-- â•â•â• Q9: Review â•â•â• -->
 <div class="panel" id="q9">
   <div class="inner" style="max-width:640px;">
     <div class="q-card">
-      <div class="q-num"><span class="nb">9</span> →</div>
+      <div class="q-num"><span class="nb">9</span> â†’</div>
       <h2>Almost done! <strong>Review your answers.</strong></h2>
       <p class="sub">Check everything is correct before submitting.</p>
       <div class="r-list" id="rList"></div>
@@ -415,18 +418,18 @@
   </div>
 </div>
 
-<!-- ═══ THANK YOU ═══ -->
+<!-- â•â•â• THANK YOU â•â•â• -->
 <div class="panel" id="q10">
   <div class="inner">
     <div class="q-card">
       <div class="ty">
-        <div class="ty-ico">🎉</div>
+        <div class="ty-ico">ðŸŽ‰</div>
         <h2>Thank you!</h2>
         <p class="ty-sub">We will be in touch with you soon.</p>
         <div class="ref-box" id="refNum">FRL-XXXXXXX</div>
-        <div class="ty-info">📞 Our team will call you on your provided number to book training.</div>
-        <div class="ty-info">📋 Keep your reference number — you may need it.</div>
-        <a href="index.html" style="display:inline-block;margin-top:16px;color:#0d9488;font-size:.87rem;text-decoration:none;font-weight:600;">← Back to Fast Route Logistics</a>
+        <div class="ty-info">ðŸ“ž Our team will call you on your provided number to book training.</div>
+        <div class="ty-info">ðŸ“‹ Keep your reference number â€” you may need it.</div>
+        <a href="index.html" style="display:inline-block;margin-top:16px;color:#0d9488;font-size:.87rem;text-decoration:none;font-weight:600;">â† Back to Fast Route Logistics</a>
       </div>
     </div>
   </div>
@@ -434,7 +437,7 @@
 
 <!-- BACK NAV -->
 <div id="backNav">
-  <button class="back-btn" onclick="goBack()">↑ Back</button>
+  <button class="back-btn" onclick="goBack()">â†‘ Back</button>
 </div>
 
 <script>
@@ -509,12 +512,12 @@ function next(n){
 
 function buildReview(){
   const rows=[['Full Name',d.name],['Date of Birth',d.dob],['Mobile',d.mobile],['Email',d.email],['Postcode',d.postcode],['Right to Work',d.rtw],['Own Van?',d.van],['Experience',d.experience]];
-  document.getElementById('rList').innerHTML=rows.map(r=>`<div class="r-row"><div class="r-lbl">${r[0]}</div><div class="r-val">${r[1]||'—'}</div></div>`).join('');
+  document.getElementById('rList').innerHTML=rows.map(r=>`<div class="r-row"><div class="r-lbl">${r[0]}</div><div class="r-val">${r[1]||'â€”'}</div></div>`).join('');
 }
 
 async function doSubmit(){
   const btn=document.getElementById('subBtn');
-  btn.innerHTML='<span class="spin"></span> Submitting…';btn.disabled=true;
+  btn.innerHTML='<span class="spin"></span> Submittingâ€¦';btn.disabled=true;
   const ref='FRL-'+Math.random().toString(36).substr(2,7).toUpperCase();
   try{
     await fetch(SURL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},
@@ -562,3 +565,4 @@ function confetti(){
 </script>
 </body>
 </html>
+
