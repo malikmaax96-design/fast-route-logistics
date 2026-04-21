@@ -3,259 +3,462 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-  <!-- v3.1 clean ASCII only | cache-bust-2026-04-21b -->
+  <!-- v4.0 Landing + Dept + Blue branding | cache-bust-2026-04-21c -->
   <title>Join Fast Route Logistics - Driver Recruitment</title>
   <meta name="description" content="Apply to become a Fast Route Logistics driver. Takes under 2 minutes.">
   <link rel="icon" type="image/png" href="images/logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    html{font-size:16px}
+    html,body{height:100%;font-family:'Inter',sans-serif;}
 
-    body {
-      font-family:'Inter',sans-serif;
-      min-height:100vh;
-      background: url('images/form-bg.jpg') center/cover no-repeat fixed;
-      position:relative;
-      overflow:hidden;
+    /* ── PROGRESS BAR ── */
+    #pBar {
+      position:fixed;top:0;left:0;height:4px;
+      background:linear-gradient(90deg,#1d4ed8,#60a5fa);
+      border-radius:0 2px 2px 0;z-index:300;
+      transition:width 0.5s ease;
+      box-shadow:0 0 12px rgba(37,99,235,0.7);
+      display:none;
     }
-    body::before {
-      content:'';
+
+    /* ── PANELS (full screen, one at a time) ── */
+    .panel {
       position:fixed;inset:0;
-      background:rgba(255,250,245,0.18);
+      display:flex;flex-direction:column;
+      opacity:0;pointer-events:none;
+      transform:translateY(30px);
+      transition:opacity .4s ease,transform .4s cubic-bezier(.25,.46,.45,.94);
+      z-index:10;
+    }
+    .panel.active{opacity:1;pointer-events:all;transform:translateY(0);}
+    .panel.out-up{opacity:0;pointer-events:none;transform:translateY(-30px);}
+
+    /* ── SHARED ELEMENTS ── */
+    .frl-blue{color:#2563eb;}
+    .bg-cover{
+      background-size:cover;background-position:center;background-repeat:no-repeat;
+    }
+
+    /* ════════════════════════════════
+       SCREEN 0: LANDING PAGE
+    ════════════════════════════════ */
+    #s0 {
+      background-image:url('images/hero-delivery.jpg');
+      background-size:cover;background-position:center;
+      align-items:stretch;justify-content:flex-start;
+    }
+    #s0::before {
+      content:'';position:absolute;inset:0;
+      background:linear-gradient(
+        160deg,
+        rgba(10,20,60,0.72) 0%,
+        rgba(10,20,60,0.45) 50%,
+        rgba(10,20,60,0.65) 100%
+      );
       z-index:0;
     }
-
-    /* PROGRESS BAR */
-    #pBar {
-      position:fixed;top:0;left:0;
-      height:4px;
-      background:linear-gradient(90deg,#0d9488,#2dd4bf);
-      border-radius:0 2px 2px 0;
-      z-index:200;
-      transition:width 0.5s ease;
-      box-shadow:0 0 12px rgba(13,148,136,0.7);
+    .land-header {
+      position:relative;z-index:1;
+      display:flex;align-items:center;justify-content:space-between;
+      padding:20px 28px;
     }
+    .land-header .brand {
+      display:flex;align-items:center;gap:12px;
+    }
+    .land-header img.logo-img {
+      height:44px;width:auto;
+    }
+    .land-header .brand-name {
+      font-size:1rem;font-weight:800;color:#fff;
+      text-shadow:0 2px 8px rgba(0,0,0,0.5);
+      line-height:1.2;
+    }
+    .land-header .brand-name span {
+      display:block;font-size:0.7rem;font-weight:500;
+      color:rgba(255,255,255,0.7);letter-spacing:.08em;text-transform:uppercase;
+    }
+    .land-body {
+      position:relative;z-index:1;
+      flex:1;display:flex;flex-direction:column;
+      align-items:center;justify-content:center;
+      padding:20px 28px 60px;
+      text-align:center;
+    }
+    .land-tag {
+      background:rgba(255,255,255,0.15);
+      border:1px solid rgba(255,255,255,0.3);
+      backdrop-filter:blur(8px);
+      color:#fff;font-size:0.78rem;font-weight:700;
+      letter-spacing:.12em;text-transform:uppercase;
+      padding:7px 18px;border-radius:999px;
+      margin-bottom:24px;
+      display:inline-flex;align-items:center;gap:6px;
+    }
+    .land-tag .dot {
+      width:7px;height:7px;border-radius:50%;
+      background:#4ade80;
+      box-shadow:0 0 8px #4ade80;
+      animation:pulse 2s infinite;
+    }
+    @keyframes pulse{0%,100%{opacity:1;}50%{opacity:.4;}}
+    .land-h1 {
+      font-size:clamp(2.2rem,7vw,4rem);
+      font-weight:900;color:#fff;
+      line-height:1.1;margin-bottom:12px;
+      text-shadow:0 4px 24px rgba(0,0,0,0.4);
+    }
+    .land-h1 span{color:#60a5fa;}
+    .land-sub {
+      font-size:1rem;color:rgba(255,255,255,0.75);
+      margin-bottom:40px;max-width:480px;font-weight:400;
+    }
+    .apply-btn {
+      display:inline-flex;align-items:center;gap:10px;
+      background:#2563eb;color:#fff;
+      border:none;border-radius:50px;
+      padding:18px 48px;
+      font-size:1.1rem;font-weight:900;
+      font-family:'Inter',sans-serif;
+      cursor:pointer;
+      transition:all .25s;
+      box-shadow:0 8px 32px rgba(37,99,235,0.55);
+      text-decoration:none;
+      letter-spacing:.02em;
+    }
+    .apply-btn:hover{background:#1d4ed8;transform:translateY(-2px);box-shadow:0 12px 40px rgba(37,99,235,0.65);}
+    .apply-btn:active{transform:translateY(0);}
+    .land-stats {
+      display:flex;gap:32px;margin-top:40px;
+      flex-wrap:wrap;justify-content:center;
+    }
+    .stat {text-align:center;}
+    .stat .num{font-size:1.6rem;font-weight:900;color:#60a5fa;}
+    .stat .lbl{font-size:0.72rem;color:rgba(255,255,255,0.6);font-weight:600;text-transform:uppercase;letter-spacing:.08em;}
 
-    /* TOP BAR */
-    .top-bar {
+    /* ════════════════════════════════
+       FORM HEADER (shown on Q screens)
+    ════════════════════════════════ */
+    .form-header {
       position:fixed;top:0;left:0;right:0;
       z-index:100;
       display:flex;align-items:center;justify-content:space-between;
-      padding:10px 24px 0;
-      background:rgba(255,255,255,0.55);
-      backdrop-filter:blur(14px);
-      -webkit-backdrop-filter:blur(14px);
-      border-bottom:1px solid rgba(255,255,255,0.45);
-      height:62px;
+      padding:10px 24px;
+      background:rgba(255,255,255,0.6);
+      backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+      border-bottom:1px solid rgba(255,255,255,0.5);
+      height:60px;
     }
-    .logo-link {display:flex;align-items:center;text-decoration:none;}
-    .logo-link img {height:40px;width:auto;display:block;}
-    .q-count {font-size:0.78rem;font-weight:600;color:rgba(0,0,0,0.45);}
+    .form-header .fh-logo {
+      display:flex;align-items:center;gap:10px;text-decoration:none;
+    }
+    .form-header .fh-logo img{height:36px;width:auto;}
+    .form-header .fh-name{font-size:0.82rem;font-weight:800;color:#111;}
+    .q-count{font-size:0.78rem;font-weight:600;color:rgba(0,0,0,0.4);}
 
-    /* PANELS */
-    .panel {
-      position:fixed;inset:0;
-      display:flex;align-items:center;justify-content:center;
-      padding:80px 24px 100px;
-      z-index:10;
-      opacity:0;pointer-events:none;
-      transform:translateY(40px);
-      transition:opacity .4s ease,transform .4s cubic-bezier(.25,.46,.45,.94);
+    /* ════════════════════════════════
+       FORM BACKGROUND (all Q screens share this)
+    ════════════════════════════════ */
+    .form-panel {
+      background-image:url('images/form-bg.jpg');
+      background-size:cover;background-position:center;
     }
-    .panel.active {
-      opacity:1;pointer-events:all;transform:translateY(0);
+    .form-panel::before{
+      content:'';position:absolute;inset:0;
+      background:rgba(255,250,245,0.18);z-index:0;
     }
-    .panel.out-up {
-      opacity:0;pointer-events:none;transform:translateY(-40px);
+    .form-panel .panel-body {
+      position:relative;z-index:1;
+      flex:1;display:flex;align-items:center;justify-content:center;
+      padding:80px 24px 90px;
     }
 
-    .inner {
+    /* ── QUESTION CARD ── */
+    .q-card {
+      background:rgba(255,255,255,0.58);
+      backdrop-filter:blur(18px) saturate(130%);
+      -webkit-backdrop-filter:blur(18px) saturate(130%);
+      border:1px solid rgba(255,255,255,0.75);
+      border-radius:20px;
+      padding:34px 34px 30px;
+      box-shadow:0 16px 60px rgba(0,0,0,0.18);
       width:100%;max-width:600px;
     }
-    .q-card {
-      background:rgba(255,255,255,0.55);
-      backdrop-filter:blur(16px) saturate(130%);
-      -webkit-backdrop-filter:blur(16px) saturate(130%);
-      border:1px solid rgba(255,255,255,0.7);
-      border-radius:20px;
-      padding:36px 36px 32px;
-      box-shadow:0 16px 60px rgba(0,0,0,0.18);
-    }
-
-    /* QUESTION NUMBER */
     .q-num {
       display:inline-flex;align-items:center;gap:6px;
-      font-size:0.82rem;font-weight:800;
-      color:#0d9488;margin-bottom:14px;
+      font-size:0.8rem;font-weight:800;color:#2563eb;
+      margin-bottom:12px;
     }
     .q-num .nb {
-      display:inline-flex;align-items:center;justify-content:center;
       width:22px;height:22px;
-      background:#0d9488;color:#fff;
+      background:#2563eb;color:#fff;
       border-radius:4px;font-size:0.72rem;font-weight:900;
+      display:inline-flex;align-items:center;justify-content:center;
     }
-
-    /* QUESTION TEXT */
     .q-card h2 {
-      font-size:clamp(1.5rem,4vw,2.1rem);
-      font-weight:700;color:#111827;
-      line-height:1.22;margin-bottom:6px;
+      font-size:clamp(1.45rem,4vw,2rem);
+      font-weight:700;color:#111827;line-height:1.22;margin-bottom:6px;
     }
-    .q-card h2 strong {font-weight:900;}
-    .q-card .sub {
-      font-size:0.88rem;color:rgba(17,24,39,0.55);
-      font-style:italic;margin-bottom:22px;
+    .q-card h2 strong{font-weight:900;}
+    .q-card .sub{
+      font-size:0.87rem;color:rgba(17,24,39,0.55);
+      font-style:italic;margin-bottom:20px;
     }
 
-    /* INPUT */
+    /* ── INPUT ── */
     .tf-input {
       width:100%;background:transparent;
-      border:none;border-bottom:2px solid rgba(17,24,39,0.25);
-      padding:12px 2px;
-      font-size:1.1rem;color:#111827;
-      font-family:'Inter',sans-serif;
-      outline:none;transition:border-color .2s;
-      margin-bottom:22px;
+      border:none;border-bottom:2px solid rgba(17,24,39,0.22);
+      padding:12px 2px;font-size:1.1rem;color:#111827;
+      font-family:'Inter',sans-serif;outline:none;
+      transition:border-color .2s;margin-bottom:20px;
     }
     .tf-input::placeholder{color:rgba(17,24,39,0.25);}
-    .tf-input:focus{border-bottom-color:#0d9488;}
-    textarea.tf-input{resize:none;min-height:90px;border:1.5px solid rgba(17,24,39,0.2);border-radius:10px;padding:12px 14px;background:rgba(255,255,255,0.4);}
-    textarea.tf-input:focus{border-color:#0d9488;background:rgba(255,255,255,0.6);}
+    .tf-input:focus{border-bottom-color:#2563eb;}
+    textarea.tf-input{
+      resize:none;min-height:88px;border:1.5px solid rgba(17,24,39,0.2);
+      border-radius:10px;padding:12px 14px;background:rgba(255,255,255,0.4);
+    }
+    textarea.tf-input:focus{border-color:#2563eb;background:rgba(255,255,255,0.6);}
 
-    /* DOB */
+    /* ── DOB ── */
     .dob-labels{display:flex;margin-bottom:6px;}
     .dob-labels span{flex:1;text-align:center;font-size:0.68rem;font-weight:700;color:rgba(17,24,39,0.4);text-transform:uppercase;letter-spacing:.06em;}
     .dob-labels .sp{width:18px;flex:none;}
-    .dob-wrap{display:flex;align-items:center;gap:0;margin-bottom:22px;}
+    .dob-wrap{display:flex;align-items:center;margin-bottom:20px;}
     .dob-part{
       flex:1;background:transparent;border:none;
-      border-bottom:2px solid rgba(17,24,39,0.25);
+      border-bottom:2px solid rgba(17,24,39,0.22);
       padding:12px 4px;font-size:1.1rem;color:#111827;
       font-family:'Inter',sans-serif;outline:none;text-align:center;
-      transition:border-color .2s;
-      -moz-appearance:textfield;
+      transition:border-color .2s;-moz-appearance:textfield;
     }
     .dob-part::-webkit-outer-spin-button,.dob-part::-webkit-inner-spin-button{-webkit-appearance:none;}
-    .dob-part:focus{border-bottom-color:#0d9488;}
+    .dob-part:focus{border-bottom-color:#2563eb;}
     .dob-sep{padding:0 4px;font-size:1.3rem;font-weight:300;color:rgba(17,24,39,0.25);}
 
-    /* OK BUTTON */
+    /* ── OK BUTTON ── */
     .ok-btn {
-      display:inline-flex;align-items:center;gap:7px;
-      background:#0d9488;color:#fff;
-      border:none;border-radius:7px;
-      padding:12px 28px;
-      font-size:1rem;font-weight:800;
-      font-family:'Inter',sans-serif;
-      cursor:pointer;
+      display:inline-flex;align-items:center;
+      background:#2563eb;color:#fff;
+      border:none;border-radius:8px;
+      padding:13px 30px;font-size:1rem;font-weight:800;
+      font-family:'Inter',sans-serif;cursor:pointer;
       transition:all .2s;
-      box-shadow:0 4px 20px rgba(13,148,136,0.4);
+      box-shadow:0 4px 20px rgba(37,99,235,0.4);
       -webkit-tap-highlight-color:transparent;
     }
-    .ok-btn:hover{background:#0f766e;transform:translateY(-1px);}
+    .ok-btn:hover{background:#1d4ed8;transform:translateY(-1px);}
     .ok-btn:active{transform:translateY(0);}
 
-    /* CHOICE BUTTONS */
-    .choices{display:flex;flex-direction:column;gap:10px;margin-bottom:22px;}
+    /* ── CHOICE CARDS ── */
+    .choices{display:flex;flex-direction:column;gap:10px;margin-bottom:20px;}
     .ch-btn {
-      display:flex;align-items:center;gap:14px;
-      padding:15px 18px;
-      background:rgba(255,255,255,0.6);
-      border:2px solid rgba(255,255,255,0.7);
-      border-radius:12px;
-      cursor:pointer;
-      font-family:'Inter',sans-serif;
-      transition:all .2s;
-      text-align:left;
-      -webkit-tap-highlight-color:transparent;
+      display:flex;align-items:flex-start;gap:12px;
+      padding:14px 16px;
+      background:rgba(255,255,255,0.65);
+      border:2px solid rgba(255,255,255,0.75);
+      border-radius:12px;cursor:pointer;
+      font-family:'Inter',sans-serif;transition:all .2s;
+      text-align:left;-webkit-tap-highlight-color:transparent;
+      position:relative;
     }
-    .ch-btn:hover{border-color:#0d9488;background:rgba(255,255,255,0.85);}
-    .ch-btn.sel{border-color:#0d9488;background:rgba(13,148,136,0.1);}
+    .ch-btn:hover{border-color:#2563eb;background:rgba(255,255,255,0.9);}
+    .ch-btn.sel{border-color:#2563eb;background:rgba(37,99,235,0.08);}
     .ch-key{
-      width:26px;height:26px;
+      width:26px;height:26px;flex-shrink:0;
       border:1.5px solid rgba(17,24,39,0.2);
-      border-radius:4px;
-      display:flex;align-items:center;justify-content:center;
+      border-radius:4px;display:flex;align-items:center;justify-content:center;
       font-size:0.75rem;font-weight:700;color:rgba(17,24,39,0.45);
-      flex-shrink:0;transition:all .2s;
+      transition:all .2s;margin-top:1px;
     }
-    .ch-btn.sel .ch-key{background:#0d9488;border-color:#0d9488;color:#fff;}
+    .ch-btn.sel .ch-key{background:#2563eb;border-color:#2563eb;color:#fff;}
     .ch-body{flex:1;}
-    .ch-body strong{display:block;font-size:.97rem;font-weight:700;color:#111827;}
-    .ch-body small{font-size:.78rem;color:rgba(17,24,39,0.5);}
-    .ch-ico{font-size:1.3rem;}
+    .ch-body strong{display:block;font-size:.95rem;font-weight:700;color:#111827;}
+    .ch-body .ch-desc{
+      font-size:.78rem;color:rgba(17,24,39,0.55);
+      font-weight:400;margin-top:2px;display:none;
+    }
+    .ch-body.expanded .ch-desc{display:block;}
 
-    /* REVIEW */
-    .r-list{margin-bottom:22px;}
-    .r-row{display:flex;align-items:flex-start;gap:12px;padding:11px 0;border-bottom:1px solid rgba(17,24,39,0.08);}
+    /* (?) Info button */
+    .info-btn {
+      background:rgba(37,99,235,0.12);
+      border:1px solid rgba(37,99,235,0.25);
+      border-radius:50%;
+      width:22px;height:22px;
+      font-size:0.65rem;font-weight:900;color:#2563eb;
+      cursor:pointer;display:flex;align-items:center;justify-content:center;
+      flex-shrink:0;font-family:'Inter',sans-serif;
+      transition:all .2s;margin-top:3px;
+    }
+    .info-btn:hover{background:#2563eb;color:#fff;}
+
+    /* ── REVIEW ── */
+    .r-list{margin-bottom:20px;}
+    .r-row{display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid rgba(17,24,39,0.08);}
     .r-row:last-child{border:none;}
-    .r-lbl{font-size:.72rem;font-weight:700;color:rgba(17,24,39,0.4);text-transform:uppercase;letter-spacing:.08em;min-width:100px;padding-top:2px;}
-    .r-val{font-size:.95rem;color:#111827;font-weight:500;flex:1;}
+    .r-lbl{font-size:.7rem;font-weight:700;color:rgba(17,24,39,0.4);text-transform:uppercase;letter-spacing:.08em;min-width:100px;padding-top:2px;}
+    .r-val{font-size:.93rem;color:#111827;font-weight:500;flex:1;word-break:break-word;}
     .submit-btn{
-      width:100%;padding:16px;
-      background:linear-gradient(135deg,#0d9488,#0f766e);
+      width:100%;padding:15px;
+      background:linear-gradient(135deg,#2563eb,#1d4ed8);
       color:#fff;border:none;border-radius:12px;
       font-size:1rem;font-weight:800;font-family:'Inter',sans-serif;
       cursor:pointer;transition:all .25s;
       display:flex;align-items:center;justify-content:center;gap:8px;
-      box-shadow:0 8px 25px rgba(13,148,136,0.4);
+      box-shadow:0 8px 25px rgba(37,99,235,0.4);
       -webkit-tap-highlight-color:transparent;
     }
     .submit-btn:hover{transform:translateY(-2px);}
 
-    /* THANK YOU */
+    /* ── THANK YOU ── */
     .ty{text-align:center;}
     .ty-ico{font-size:3.5rem;margin-bottom:14px;}
-    .ty h2{font-size:2rem;font-weight:900;color:#0d9488;margin-bottom:8px;}
+    .ty h2{font-size:2rem;font-weight:900;color:#2563eb;margin-bottom:8px;}
     .ty .ty-sub{font-size:1rem;color:rgba(17,24,39,.6);font-style:italic;margin-bottom:20px;}
-    .ref-box{display:inline-block;background:rgba(13,148,136,.1);border:1.5px solid rgba(13,148,136,.3);border-radius:10px;padding:12px 24px;font-size:1.1rem;font-weight:900;color:#0d9488;letter-spacing:.08em;margin-bottom:20px;}
-    .ty-info{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,0.55);backdrop-filter:blur(10px);border-radius:10px;padding:14px 16px;font-size:.86rem;color:rgba(17,24,39,.65);margin-bottom:8px;text-align:left;}
+    .ref-box{display:inline-block;background:rgba(37,99,235,.08);border:1.5px solid rgba(37,99,235,.3);border-radius:10px;padding:11px 22px;font-size:1.1rem;font-weight:900;color:#2563eb;letter-spacing:.08em;margin-bottom:18px;}
+    .ty-info{display:flex;align-items:flex-start;gap:10px;background:rgba(255,255,255,0.6);backdrop-filter:blur(10px);border-radius:10px;padding:13px 15px;font-size:.84rem;color:rgba(17,24,39,.65);margin-bottom:8px;text-align:left;}
 
-    /* BACK NAV */
-    #backNav{position:fixed;bottom:0;left:0;right:0;z-index:50;padding:14px 24px;display:none;align-items:center;}
-    .back-btn{background:rgba(255,255,255,0.5);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.6);border-radius:8px;padding:9px 16px;font-size:.85rem;font-weight:700;color:rgba(17,24,39,.55);cursor:pointer;font-family:'Inter',sans-serif;transition:all .2s;-webkit-tap-highlight-color:transparent;}
-    .back-btn:hover{background:rgba(255,255,255,.8);color:#111827;}
+    /* ── BACK NAV ── */
+    #backNav{
+      position:fixed;bottom:0;left:0;right:0;z-index:50;
+      padding:12px 24px;display:none;align-items:center;
+    }
+    .back-btn{
+      background:rgba(255,255,255,0.55);backdrop-filter:blur(8px);
+      border:1px solid rgba(255,255,255,.65);border-radius:8px;
+      padding:9px 18px;font-size:.85rem;font-weight:700;
+      color:rgba(17,24,39,.55);cursor:pointer;
+      font-family:'Inter',sans-serif;transition:all .2s;
+      -webkit-tap-highlight-color:transparent;
+    }
+    .back-btn:hover{background:rgba(255,255,255,.85);color:#111827;}
 
-    /* ERROR */
-    .qerr{font-size:.8rem;color:#dc2626;margin-top:-14px;margin-bottom:16px;display:none;}
+    /* ── ERROR ── */
+    .qerr{font-size:.8rem;color:#dc2626;margin-bottom:14px;display:none;}
 
-    /* SPINNER */
+    /* ── SPINNER ── */
     .spin{width:18px;height:18px;border:2.5px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:rot .7s linear infinite;display:inline-block;}
     @keyframes rot{to{transform:rotate(360deg)}}
 
-    /* CONFETTI */
+    /* ── CONFETTI ── */
     #cc{position:fixed;inset:0;pointer-events:none;z-index:9999;width:100%;height:100%;}
 
-    /* MOBILE */
+    /* ── MOBILE ── */
     @media(max-width:520px){
-      .q-card{padding:26px 22px 24px;border-radius:16px;}
-      .q-card h2{font-size:1.4rem;}
-      .panel{padding:72px 16px 90px;}
+      .q-card{padding:24px 20px 22px;border-radius:16px;}
+      .q-card h2{font-size:1.35rem;}
+      .form-panel .panel-body{padding:70px 16px 80px;}
+      .land-h1{font-size:2rem;}
+      .land-stats{gap:20px;}
     }
   </style>
 </head>
 <body>
 
 <canvas id="cc"></canvas>
-<div id="pBar" style="width:0%"></div>
+<div id="pBar"></div>
 
-<!-- TOP BAR -->
-<div class="top-bar">
-  <a class="logo-link" href="index.html">
-    <img src="images/frl-logo.svg" alt="Fast Route Logistics">
+<!-- SHARED FORM HEADER (shown on Q screens) -->
+<div class="form-header" id="formHeader" style="display:none;">
+  <a class="fh-logo" href="index.html">
+    <img src="images/frl-logo.svg" alt="FRL">
+    <span class="fh-name">Fast Route Logistics</span>
   </a>
   <span class="q-count" id="qCount"></span>
 </div>
 
-<!-- Q1: Name -->
-<div class="panel" id="q1">
-  <div class="inner">
-    <div class="q-card">
+<!-- ═══════════════════════════════════════════
+     SCREEN 0: LANDING PAGE
+═══════════════════════════════════════════ -->
+<div class="panel active" id="s0">
+  <div class="land-header">
+    <div class="brand">
+      <img class="logo-img" src="images/frl-logo.svg" alt="Fast Route Logistics">
+      <div class="brand-name">
+        Fast Route Logistics
+        <span>Est. UK</span>
+      </div>
+    </div>
+  </div>
+  <div class="land-body">
+    <div class="land-tag">
+      <span class="dot"></span>
+      Now Hiring Across the UK
+    </div>
+    <h1 class="land-h1">
+      We Are <span>Recruiting</span><br>Now
+    </h1>
+    <p class="land-sub">
+      Join our growing driver network. Flexible hours, competitive pay, and routes across the UK.
+    </p>
+    <button class="apply-btn" onclick="startForm()">
+      APPLY HERE
+    </button>
+    <div class="land-stats">
+      <div class="stat"><div class="num">200+</div><div class="lbl">Active Drivers</div></div>
+      <div class="stat"><div class="num">12+</div><div class="lbl">UK Depots</div></div>
+      <div class="stat"><div class="num">24h</div><div class="lbl">Response Time</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SCREEN 1: DEPARTMENT SELECTION
+═══════════════════════════════════════════ -->
+<div class="panel form-panel" id="s1">
+  <div class="panel-body">
+    <div class="q-card" style="max-width:640px;">
       <div class="q-num"><span class="nb">1</span></div>
+      <h2>Which <strong>department</strong> are you applying for? *</h2>
+      <p class="sub">Choose the role that suits you best. Tap the (?) for more info.</p>
+      <div class="choices">
+
+        <button class="ch-btn" onclick="pickDept(this,'Light and Large')">
+          <div class="ch-key">A</div>
+          <div class="ch-body" id="dept-desc-a">
+            <strong>Light and Large</strong>
+            <div class="ch-desc">Heavy and large boxes delivered to residential and commercial addresses.</div>
+          </div>
+          <span class="info-btn" onclick="toggleDesc(event,'dept-desc-a')">?</span>
+        </button>
+
+        <button class="ch-btn" onclick="pickDept(this,'Multidrop')">
+          <div class="ch-key">B</div>
+          <div class="ch-body" id="dept-desc-b">
+            <strong>Multidrop</strong>
+            <div class="ch-desc">Door to door parcels delivered across multiple stops on a single route.</div>
+          </div>
+          <span class="info-btn" onclick="toggleDesc(event,'dept-desc-b')">?</span>
+        </button>
+
+        <button class="ch-btn" onclick="pickDept(this,'Parcelshop')">
+          <div class="ch-key">C</div>
+          <div class="ch-body" id="dept-desc-c">
+            <strong>Parcelshop</strong>
+            <div class="ch-desc">Deliver and collect parcels from shops and drop-off points.</div>
+          </div>
+          <span class="info-btn" onclick="toggleDesc(event,'dept-desc-c')">?</span>
+        </button>
+
+      </div>
+      <div class="qerr" id="e-dept">Please select a department</div>
+      <button class="ok-btn" onclick="next(0)">OK</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     Q1: FULL NAME
+═══════════════════════════════════════════ -->
+<div class="panel form-panel" id="q1">
+  <div class="panel-body">
+    <div class="q-card">
+      <div class="q-num"><span class="nb">2</span></div>
       <h2>What's your <strong>full name?</strong> *</h2>
-      <p class="sub">Let us know if you have a middle name as well.</p>
+      <p class="sub">Let us know if you have a middle name as well. Please use your English name.</p>
       <input class="tf-input" type="text" id="i-name" placeholder="Type your answer here..." autocomplete="name">
       <div class="qerr" id="e-name">Please enter your full name</div>
       <button class="ok-btn" onclick="next(1)">OK</button>
@@ -264,11 +467,11 @@
 </div>
 
 <!-- Q2: DOB -->
-<div class="panel" id="q2">
-  <div class="inner">
+<div class="panel form-panel" id="q2">
+  <div class="panel-body">
     <div class="q-card">
-      <div class="q-num"><span class="nb">2</span></div>
-      <h2>Nice to meet you! What is your <strong>date of birth?</strong> *</h2>
+      <div class="q-num"><span class="nb">3</span></div>
+      <h2>What is your <strong>date of birth?</strong> *</h2>
       <p class="sub">When were you born?</p>
       <div class="dob-labels">
         <span>Day</span><span class="sp"></span>
@@ -288,11 +491,11 @@
   </div>
 </div>
 
-<!-- Q3: Mobile -->
-<div class="panel" id="q3">
-  <div class="inner">
+<!-- Q3: MOBILE -->
+<div class="panel form-panel" id="q3">
+  <div class="panel-body">
     <div class="q-card">
-      <div class="q-num"><span class="nb">3</span></div>
+      <div class="q-num"><span class="nb">4</span></div>
       <h2>What's your <strong>mobile number?</strong> *</h2>
       <p class="sub">We'll call you within 24 hours of applying.</p>
       <input class="tf-input" type="tel" id="i-mobile" placeholder="e.g. 07700 900 123" autocomplete="tel">
@@ -302,13 +505,13 @@
   </div>
 </div>
 
-<!-- Q4: Email -->
-<div class="panel" id="q4">
-  <div class="inner">
+<!-- Q4: EMAIL -->
+<div class="panel form-panel" id="q4">
+  <div class="panel-body">
     <div class="q-card">
-      <div class="q-num"><span class="nb">4</span></div>
+      <div class="q-num"><span class="nb">5</span></div>
       <h2>What's your <strong>email address?</strong> *</h2>
-      <p class="sub">We'll send your application confirmation here.</p>
+      <p class="sub">We'll send your confirmation here.</p>
       <input class="tf-input" type="email" id="i-email" placeholder="name@example.com" autocomplete="email">
       <div class="qerr" id="e-email">Please enter a valid email address</div>
       <button class="ok-btn" onclick="next(4)">OK</button>
@@ -316,11 +519,11 @@
   </div>
 </div>
 
-<!-- Q5: Postcode -->
-<div class="panel" id="q5">
-  <div class="inner">
+<!-- Q5: POSTCODE -->
+<div class="panel form-panel" id="q5">
+  <div class="panel-body">
     <div class="q-card">
-      <div class="q-num"><span class="nb">5</span></div>
+      <div class="q-num"><span class="nb">6</span></div>
       <h2>What's your <strong>postcode?</strong> *</h2>
       <p class="sub">Helps us match you to your nearest depot.</p>
       <input class="tf-input" type="text" id="i-postcode" placeholder="e.g. B1 1AA" autocomplete="postal-code" style="text-transform:uppercase;">
@@ -330,23 +533,21 @@
   </div>
 </div>
 
-<!-- Q6: Right to Work -->
-<div class="panel" id="q6">
-  <div class="inner">
+<!-- Q6: RIGHT TO WORK -->
+<div class="panel form-panel" id="q6">
+  <div class="panel-body">
     <div class="q-card">
-      <div class="q-num"><span class="nb">6</span></div>
+      <div class="q-num"><span class="nb">7</span></div>
       <h2>Do you have the <strong>right to work</strong> in the UK? *</h2>
       <p class="sub">We are required by law to verify this before employment.</p>
       <div class="choices">
         <button class="ch-btn" onclick="pick(this,'rtw','Yes')">
           <div class="ch-key">A</div>
-          <div class="ch-body"><strong>Yes, I have the right to work</strong><small>UK passport, BRP, visa or work permit</small></div>
-          <span class="ch-ico">Yes</span>
+          <div class="ch-body"><strong>Yes, I have the right to work</strong><div class="ch-desc" style="display:block;">UK passport, BRP, visa or work permit</div></div>
         </button>
         <button class="ch-btn" onclick="pick(this,'rtw','No')">
           <div class="ch-key">B</div>
-          <div class="ch-body"><strong>No, I don't have the right to work</strong><small>I do not hold valid UK work authorisation</small></div>
-          <span class="ch-ico">No</span>
+          <div class="ch-body"><strong>No, I don't have the right to work</strong></div>
         </button>
       </div>
       <div class="qerr" id="e-rtw">Please select an option</div>
@@ -355,23 +556,25 @@
   </div>
 </div>
 
-<!-- Q7: Own Van -->
-<div class="panel" id="q7">
-  <div class="inner">
+<!-- Q7: OWN VAN (3 OPTIONS) -->
+<div class="panel form-panel" id="q7">
+  <div class="panel-body">
     <div class="q-card">
-      <div class="q-num"><span class="nb">7</span></div>
-      <h2>Do you have <strong>your own van?</strong> *</h2>
-      <p class="sub">Don't worry if not - we can arrange a rental vehicle.</p>
+      <div class="q-num"><span class="nb">8</span></div>
+      <h2>Do you have <strong>your own vehicle?</strong> *</h2>
+      <p class="sub">Select the option that best describes your situation.</p>
       <div class="choices">
         <button class="ch-btn" onclick="pick(this,'van','Yes - I have my own van')">
           <div class="ch-key">A</div>
-          <div class="ch-body"><strong>Yes, I have my own van</strong><small>I'll use my own vehicle for deliveries</small></div>
-          <span class="ch-ico">Van</span>
+          <div class="ch-body"><strong>Yes, I have my own van</strong><div class="ch-desc" style="display:block;">I will use my own van for deliveries</div></div>
+        </button>
+        <button class="ch-btn" onclick="pick(this,'van','No - I only have a car')">
+          <div class="ch-key">B</div>
+          <div class="ch-body"><strong>No, I only have a car</strong><div class="ch-desc" style="display:block;">I have a car but not a van</div></div>
         </button>
         <button class="ch-btn" onclick="pick(this,'van','No - I would like to rent a vehicle')">
-          <div class="ch-key">B</div>
-          <div class="ch-body"><strong>No, I'd like to rent a vehicle</strong><small>I'd like to rent through Fast Route Logistics</small></div>
-          <span class="ch-ico">Rent</span>
+          <div class="ch-key">C</div>
+          <div class="ch-body"><strong>No, I would like to rent a vehicle</strong><div class="ch-desc" style="display:block;">I would like to rent through Fast Route Logistics</div></div>
         </button>
       </div>
       <div class="qerr" id="e-van">Please select an option</div>
@@ -380,11 +583,11 @@
   </div>
 </div>
 
-<!-- Q8: Experience -->
-<div class="panel" id="q8">
-  <div class="inner">
+<!-- Q8: EXPERIENCE -->
+<div class="panel form-panel" id="q8">
+  <div class="panel-body">
     <div class="q-card">
-      <div class="q-num"><span class="nb">8</span></div>
+      <div class="q-num"><span class="nb">9</span></div>
       <h2>What <strong>experience</strong> do you have? *</h2>
       <p class="sub">Any driving or logistics experience helps - even if it's just a little!</p>
       <textarea class="tf-input" id="i-exp" placeholder="e.g. 2 years driving for Amazon Logistics, experience with parcel scanning, clean DBS check..." rows="3"></textarea>
@@ -394,11 +597,11 @@
   </div>
 </div>
 
-<!-- Q9: Review -->
-<div class="panel" id="q9">
-  <div class="inner" style="max-width:640px;">
-    <div class="q-card">
-      <div class="q-num"><span class="nb">9</span></div>
+<!-- Q9: REVIEW -->
+<div class="panel form-panel" id="q9">
+  <div class="panel-body">
+    <div class="q-card" style="max-width:640px;">
+      <div class="q-num"><span class="nb">10</span></div>
       <h2>Almost done! <strong>Review your answers.</strong></h2>
       <p class="sub">Check everything is correct before submitting.</p>
       <div class="r-list" id="rList"></div>
@@ -410,61 +613,97 @@
 </div>
 
 <!-- THANK YOU -->
-<div class="panel" id="q10">
-  <div class="inner">
+<div class="panel form-panel" id="q10">
+  <div class="panel-body">
     <div class="q-card">
       <div class="ty">
         <div class="ty-ico">&#127881;</div>
         <h2>Thank you!</h2>
         <p class="ty-sub">We will be in touch with you soon.</p>
         <div class="ref-box" id="refNum">FRL-XXXXXXX</div>
-        <div class="ty-info">Our team will call you on your provided number to book training.</div>
-        <div class="ty-info">Keep your reference number - you may need it.</div>
-        <a href="index.html" style="display:inline-block;margin-top:16px;color:#0d9488;font-size:.87rem;text-decoration:none;font-weight:600;">Back to Fast Route Logistics</a>
+        <div class="ty-info">Our team will call you on your provided number to book your training.</div>
+        <div class="ty-info">Keep your reference number - you may need it for any enquiries.</div>
+        <a href="index.html" style="display:inline-block;margin-top:16px;color:#2563eb;font-size:.87rem;text-decoration:none;font-weight:700;">Back to Fast Route Logistics</a>
       </div>
     </div>
   </div>
 </div>
 
-<!-- BACK NAV -->
+<!-- BACK BUTTON -->
 <div id="backNav">
   <button class="back-btn" onclick="goBack()">Back</button>
 </div>
 
 <script>
 var SURL='https://script.google.com/macros/s/AKfycbyCGlanLwk_E6oM41T-1fl02kO11QVihv8mUm71BWrCXsY_G5hQ7J4yCdk6qChI-s8M/exec';
-var TOTAL=9;
-var cur=1;
-var d={name:'',dob:'',mobile:'',email:'',postcode:'',rtw:'',van:'',experience:''};
+var TOTAL=10; // s1 dept + q1-q9
+var cur='s0';
+var d={dept:'',name:'',dob:'',mobile:'',email:'',postcode:'',rtw:'',van:'',experience:''};
 
-function prog(n){
-  var pct=n<=0?2:Math.round(n/(TOTAL+1)*100);
-  document.getElementById('pBar').style.width=pct+'%';
-  document.getElementById('qCount').textContent=(n>=1&&n<=TOTAL)?n+' of '+TOTAL:'';
-  document.getElementById('backNav').style.display=(n>1&&n<=TOTAL)?'flex':'none';
-}
+// Screen IDs in order
+var SCREENS=['s0','s1','q1','q2','q3','q4','q5','q6','q7','q8','q9','q10'];
+var QNUMS={s1:1,q1:2,q2:3,q3:4,q4:5,q5:6,q6:7,q7:8,q8:9,q9:10};
 
-function show(n){
+function show(id){
   document.querySelectorAll('.panel').forEach(function(p){p.classList.remove('active','out-up');});
-  var p=document.getElementById('q'+n);
-  if(!p)return;
-  p.classList.add('active');
+  var panel=document.getElementById(id);
+  if(!panel)return;
+  panel.classList.add('active');
+  cur=id;
+
+  // Header visibility
+  var isForm=(id!=='s0'&&id!=='q10');
+  document.getElementById('formHeader').style.display=isForm?'flex':'none';
+  document.getElementById('pBar').style.display=isForm?'block':'none';
+
+  // Progress
+  var qn=QNUMS[id]||0;
+  if(qn>0){
+    document.getElementById('qCount').textContent=qn+' of '+TOTAL;
+    document.getElementById('pBar').style.width=Math.round(qn/TOTAL*100)+'%';
+  }else{
+    document.getElementById('qCount').textContent='';
+    document.getElementById('pBar').style.width='0%';
+  }
+
+  // Back button
+  var idx=SCREENS.indexOf(id);
+  document.getElementById('backNav').style.display=(idx>1&&id!=='q10')?'flex':'none';
+
+  // Focus input
   setTimeout(function(){
-    var inp=p.querySelector('input:not([type=number]),textarea');
+    var inp=panel.querySelector('input:not([type=number]),textarea');
     if(inp)inp.focus();
   },380);
-  prog(n-1);
-  cur=n;
 }
 
-function goBack(){if(cur>1)show(cur-1);}
+function goBack(){
+  var idx=SCREENS.indexOf(cur);
+  if(idx>0)show(SCREENS[idx-1]);
+}
+
+function startForm(){
+  show('s1');
+}
+
+function toggleDesc(e,id){
+  e.stopPropagation();
+  var body=document.getElementById(id);
+  body.classList.toggle('expanded');
+}
+
+function pickDept(el,val){
+  el.closest('.choices').querySelectorAll('.ch-btn').forEach(function(b){b.classList.remove('sel');});
+  el.classList.add('sel');
+  d.dept=val;
+  var e=document.getElementById('e-dept');
+  if(e)e.style.display='none';
+}
 
 function pick(el,key,val){
   el.closest('.choices').querySelectorAll('.ch-btn').forEach(function(b){b.classList.remove('sel');});
-  el.classList.add('sel');
-  d[key]=val;
-  var e=document.getElementById('e-'+key);
-  if(e)e.style.display='none';
+  el.classList.add('sel');d[key]=val;
+  var e=document.getElementById('e-'+key);if(e)e.style.display='none';
 }
 
 function showErr(id){
@@ -472,43 +711,48 @@ function showErr(id){
   if(e){e.style.display='block';setTimeout(function(){e.style.display='none';},3000);}
 }
 
-function next(n){
-  if(n===1){
+function next(step){
+  if(step===0){ // dept screen
+    if(!d.dept){showErr('e-dept');return;}
+    show('q1');return;
+  }
+  if(step===1){
     var v=document.getElementById('i-name').value.trim();
     if(v.length<2){showErr('e-name');return;}d.name=v;
-  }else if(n===2){
+  }else if(step===2){
     var dd=+document.getElementById('dob-d').value;
     var mm=+document.getElementById('dob-m').value;
     var yy=+document.getElementById('dob-y').value;
     if(!dd||!mm||!yy||yy<1920||yy>2008||dd<1||dd>31||mm<1||mm>12){showErr('e-dob');return;}
     d.dob=String(dd).padStart(2,'0')+'/'+String(mm).padStart(2,'0')+'/'+yy;
-  }else if(n===3){
+  }else if(step===3){
     var v=document.getElementById('i-mobile').value.trim();
     if(v.length<7){showErr('e-mobile');return;}d.mobile=v;
-  }else if(n===4){
+  }else if(step===4){
     var v=document.getElementById('i-email').value.trim();
     if(!v.includes('@')||!v.includes('.')){showErr('e-email');return;}d.email=v;
-  }else if(n===5){
+  }else if(step===5){
     var v=document.getElementById('i-postcode').value.trim().toUpperCase();
     if(v.length<5){showErr('e-postcode');return;}d.postcode=v;
-  }else if(n===6){
+  }else if(step===6){
     if(!d.rtw){showErr('e-rtw');return;}
-  }else if(n===7){
+  }else if(step===7){
     if(!d.van){showErr('e-van');return;}
-  }else if(n===8){
+  }else if(step===8){
     var v=document.getElementById('i-exp').value.trim();
     if(v.length<5){showErr('e-exp');return;}d.experience=v;
     buildReview();
   }
-  show(n+1);
+  var nextId='q'+(step+1);
+  if(step===8)nextId='q9';
+  show(nextId);
 }
 
 function buildReview(){
   var rows=[
-    ['Full Name',d.name],['Date of Birth',d.dob],
-    ['Mobile',d.mobile],['Email',d.email],
-    ['Postcode',d.postcode],['Right to Work',d.rtw],
-    ['Own Van',d.van],['Experience',d.experience]
+    ['Department',d.dept],['Full Name',d.name],['Date of Birth',d.dob],
+    ['Mobile',d.mobile],['Email',d.email],['Postcode',d.postcode],
+    ['Right to Work',d.rtw],['Own Vehicle',d.van],['Experience',d.experience]
   ];
   document.getElementById('rList').innerHTML=rows.map(function(r){
     return '<div class="r-row"><div class="r-lbl">'+r[0]+'</div><div class="r-val">'+(r[1]||'-')+'</div></div>';
@@ -526,28 +770,33 @@ async function doSubmit(){
       headers:{'Content-Type':'application/json'},
       body:JSON.stringify({
         timestamp:new Date().toLocaleString('en-GB'),
-        reference:ref,fullName:d.name,dob:d.dob,
-        mobile:d.mobile,email:d.email,postcode:d.postcode,
+        reference:ref,department:d.dept,
+        fullName:d.name,dob:d.dob,mobile:d.mobile,
+        email:d.email,postcode:d.postcode,
         rightToWork:d.rtw,ownVan:d.van,experience:d.experience
       })
     });
   }catch(e){console.log(e);}
   document.getElementById('refNum').textContent=ref;
-  show(10);
+  show('q10');
   document.getElementById('pBar').style.width='100%';
   confetti();
 }
 
+// Enter key support
 document.addEventListener('keydown',function(e){
   if(e.key!=='Enter')return;
-  var p=document.getElementById('q'+cur);if(!p)return;
   if(document.activeElement&&document.activeElement.tagName==='TEXTAREA')return;
-  var btn=p.querySelector('.ok-btn');if(btn)btn.click();
+  var screens=['s1','q1','q2','q3','q4','q5','q6','q7','q8','q9'];
+  if(screens.indexOf(cur)<0)return;
+  var panel=document.getElementById(cur);
+  if(!panel)return;
+  var btn=panel.querySelector('.ok-btn');if(btn)btn.click();
 });
 
+// DOB auto-tab
 document.addEventListener('DOMContentLoaded',function(){
-  var dParts=[['dob-d',2,'dob-m'],['dob-m',2,'dob-y']];
-  dParts.forEach(function(item){
+  [['dob-d',2,'dob-m'],['dob-m',2,'dob-y']].forEach(function(item){
     var el=document.getElementById(item[0]);
     if(el)el.addEventListener('input',function(){
       if(this.value.length>=item[1])document.getElementById(item[2]).focus();
@@ -555,27 +804,21 @@ document.addEventListener('DOMContentLoaded',function(){
   });
   var pc=document.getElementById('i-postcode');
   if(pc)pc.addEventListener('input',function(){this.value=this.value.toUpperCase();});
-  show(1);
 });
 
 function confetti(){
   var cv=document.getElementById('cc'),ctx=cv.getContext('2d');
   cv.width=window.innerWidth;cv.height=window.innerHeight;
-  var c=['#0d9488','#2dd4bf','#99f6e4','#fff','#f0fdf4'];
+  var c=['#2563eb','#60a5fa','#bfdbfe','#fff','#dbeafe'];
   var ps=[];
-  for(var i=0;i<120;i++){
-    ps.push({
-      x:Math.random()*cv.width,y:-Math.random()*150,
-      w:7+Math.random()*9,h:3+Math.random()*5,
-      c:c[Math.floor(Math.random()*c.length)],
-      a:Math.random()*360,sp:(Math.random()-.5)*5,
-      vy:3+Math.random()*4,vx:(Math.random()-.5)*3,op:1
-    });
+  for(var i=0;i<130;i++){
+    ps.push({x:Math.random()*cv.width,y:-Math.random()*200,w:7+Math.random()*9,h:3+Math.random()*5,
+      c:c[Math.floor(Math.random()*c.length)],a:Math.random()*360,sp:(Math.random()-.5)*5,
+      vy:3+Math.random()*4,vx:(Math.random()-.5)*3,op:1});
   }
   var fr;
-  function draw(){
-    ctx.clearRect(0,0,cv.width,cv.height);
-    var alive=false;
+  (function draw(){
+    ctx.clearRect(0,0,cv.width,cv.height);var alive=false;
     ps.forEach(function(p){
       if(p.y<cv.height+20)alive=true;
       p.y+=p.vy;p.x+=p.vx;p.a+=p.sp;p.op-=.007;
@@ -586,8 +829,7 @@ function confetti(){
     });
     if(alive)fr=requestAnimationFrame(draw);
     else ctx.clearRect(0,0,cv.width,cv.height);
-  }
-  draw();
+  })();
   setTimeout(function(){cancelAnimationFrame(fr);},5000);
 }
 </script>
